@@ -1,0 +1,1 @@
+class Coffee < ActiveRecord::Base 
