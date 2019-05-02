@@ -1,1 +1,3 @@
-class Coffee < ActiveRecord::Base 
+class Coffee < ActiveRecord::Base
+
+end
