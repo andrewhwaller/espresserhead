@@ -8,7 +8,11 @@ class ApplicationController < Sinatra::Base
     end
 
     get '/' do 
-        erb :index
+        if session[:username].nil?
+            redirect '/login'
+        else
+            erb :index
+        end
     end
 
 end
