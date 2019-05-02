@@ -1,6 +1,11 @@
-require 'bundler'
+ENV['SINATRA_ENV'] ||= "development"
 
-Bundler.require
+require 'bundler'
+Bundler.require(:default, ENV['SINATRA_ENV'])
+
+configure :development do
+    set :database, 'sqlite3:db/database.db'
+  end
 
 ActiveRecord::Base.establish_connection(
     :adapter => "sqlite3",

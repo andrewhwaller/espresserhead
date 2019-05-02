@@ -11,7 +11,7 @@ class ApplicationController < Sinatra::Base
         if session[:username].nil?
             redirect '/login'
         else
-            erb :index
+            erb :'users/index'
         end
     end
 
