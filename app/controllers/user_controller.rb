@@ -1,10 +1,10 @@
 class UserController < ApplicationController 
 
-    get '/signup' do
+    get '/users/new' do
         erb :'users/new'
     end
     
-    post '/signup' do
+    post '/users' do
         @user = User.new
         @user.username = params[:username]
         @user.email = params[:email]
@@ -16,17 +16,17 @@ class UserController < ApplicationController
         end
     end
 
-    get '/login' do 
+    get '/session/new' do 
         erb :'users/login'
     end
 
-    post '/login' do
+    post '/session' do
         login(params[:username], params[:password])
         "You are now logged in."
         redirect '/index'
     end
 
-    get '/logout' do
+    delete '/session' do
         logout
         redirect '/'
     end
