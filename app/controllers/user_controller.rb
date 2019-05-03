@@ -4,7 +4,7 @@ class UserController < ApplicationController
         erb :'users/new'
     end
     
-    post '/users' do
+    post '/signup' do
         @user = User.new
         @user.username = params[:username]
         @user.email = params[:email]
