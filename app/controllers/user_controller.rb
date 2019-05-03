@@ -11,7 +11,7 @@ class UserController < ApplicationController
     end
 
     get '/logout' do
-        session.destroy
+        logout
         redirect '/'
     end
 
@@ -19,6 +19,14 @@ class UserController < ApplicationController
         if logged_in?
             erb :'/users/index'
         else
+            redirect '/login'
+        end
+    end
+
+    get '/firewalkwithme' do
+        if logged_in?
+            erb :'/electricity'
+        else    
             redirect '/login'
         end
     end

@@ -19,6 +19,10 @@ class ApplicationController < Sinatra::Base
         def logged_in?
             !!session[:username]
         end
+
+        def logout
+            session.destroy
+        end
     end
 
 end
