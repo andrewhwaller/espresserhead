@@ -8,10 +8,16 @@ class ApplicationController < Sinatra::Base
     end
 
     get '/' do 
-        if session[:username].nil?
+        if !logged_in?
             redirect '/login'
         else
             erb :'users/index'
+        end
+    end
+
+    helpers do
+        def logged_in?
+            !!session[:username]
         end
     end
 
