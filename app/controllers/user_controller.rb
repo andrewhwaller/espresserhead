@@ -5,7 +5,7 @@ class UserController < ApplicationController
     end
 
     post '/login' do
-        session[:username] = params[:username]
+        login(params[:username], params[:password])
         "You are now logged in."
         redirect '/index'
     end
