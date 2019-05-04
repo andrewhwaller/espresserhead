@@ -52,7 +52,7 @@ class CoffeeListsController < ApplicationController
       end
       redirect to '/coffeelists'
     else
-      redirect to '/sessions/new'
+      redirect to '/session/new'
     end
   end
 end
