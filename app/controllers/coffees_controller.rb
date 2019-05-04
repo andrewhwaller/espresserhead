@@ -12,7 +12,7 @@ class CoffeesController < ApplicationController
 
   get '/coffees/new' do
     if logged_in?
-      erb :'coffeelists/new'
+      erb :'coffees/new'
     else
       redirect '/session/new'
     end
