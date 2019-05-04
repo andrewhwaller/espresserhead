@@ -10,7 +10,7 @@ class UserController < ApplicationController
         @user.email = params[:email]
         @user.password = params[:password]
         if @user.save
-            redirect '/login'
+            redirect '/session/new'
         else
             erb :'users/new'
         end
@@ -26,7 +26,7 @@ class UserController < ApplicationController
         redirect '/index'
     end
 
-    delete '/session' do
+    get '/session' do
         logout
         redirect '/'
     end
@@ -35,7 +35,7 @@ class UserController < ApplicationController
         if logged_in?
             erb :'/users/index'
         else
-            redirect '/login'
+            redirect '/session/new'
         end
     end
 
@@ -43,7 +43,7 @@ class UserController < ApplicationController
         if logged_in?
             erb :'/electricity'
         else    
-            redirect '/login'
+            redirect '/session/new'
         end
     end
 end
