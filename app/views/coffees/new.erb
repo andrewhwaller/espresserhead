@@ -1,0 +1,43 @@
+<h2>New Coffee</h2>
+
+<form method="POST" action="/coffees">
+  <label>Coffee name:</label>
+  <input type="text" name="list_name" id="coffee[name]">
+  <%# <label>List name:</label>
+  <input type="text" name="coffee_list_id" id="coffee[coffee_list_id]"> %>
+  <select name="prep_method" id="coffee[prep_method]">
+    <option value="espresso">Espresso</option>
+    <option value="pourover">Pourover</option>
+    <option value="drip">Drip</option>
+    <option value="other">Other</option>
+  </select>
+  <select name="roast" id="coffee[roast]">
+    <option value="light">Light</option>
+    <option value="medium">Medium</option>
+    <option value="medium_dark">Medium Dark</option>
+    <option value="dark">Dark</option>
+  </select>
+  <label>Origin:</label>
+  <input type="text" name="origin" id="coffee[origin]">
+  <select name="rating" id="coffee[rating]">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+  <label>Origin:</label>
+  <input type="text" name="origin" id="coffee[origin]">
+  <textarea name="notes" id="coffee[notes] rows="10" cols="30">
+    Notes on coffee, e.g., prep tips, recipes, ratios, etc.
+  </textarea>
+  <input type="submit" value="submit">
+</form>
+
+    t.string "name"
+    t.integer "coffee_list_id"
+    t.string "prep_method"
+    t.integer "rating"
+    t.string "origin"
+    t.string "roast"
+    t.text "notes"

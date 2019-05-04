@@ -14,7 +14,7 @@ class CoffeeListsController < ApplicationController
     if logged_in?
       erb :'coffeelists/new'
     else
-      login
+      redirect '/session/new'
     end
   end
 
