@@ -3,5 +3,10 @@
 <% @coffeelists.each do |list| %>
   <div>
     <%= list.list_name %>
+    <ul>
+      <li><a href='/coffeelists/<%=list.id%>'>View list</a></li>
+      <li><a href=''>Edit list</a></li>
+      <li><a href='/coffeelists/<%=list.id%>/delete'>Delete list</a></li>
+
   </div>
 <% end %>
