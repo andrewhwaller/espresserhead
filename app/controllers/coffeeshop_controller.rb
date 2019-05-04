@@ -1,4 +1,3 @@
-class CoffeeshopController < ApplicationController 
-
-
+#  Coffeeshop Controller
+class CoffeeshopController < ApplicationController
 end
