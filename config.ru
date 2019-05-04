@@ -1,7 +1,8 @@
 require_relative './config/environment'
 
 use Rack::MethodOverride
-use UserController
-use CoffeeController
-use CoffeeshopController
+use UsersController
+use CoffeesController
+use CoffeeshopsController
+use CoffeeListsController
 run ApplicationController
