@@ -2,4 +2,17 @@
 <%= @coffeelist.list_name %>
 <br>
 <%= @coffeelist.id %>
+<br>
+<% @coffeelist.coffees.each do |listed_coffee| %>
+<br>
+<h4><%= listed_coffee.name %>
+<ul>
+  <li>Preparation method: <%= listed_coffee.prep_method %></li>
+  <li>Origin: <%= listed_coffee.origin %></li>
+  <li>Roast: <%= listed_coffee.roast %></li>
+  <li>Rating: <%= listed_coffee.rating %></li>
+  <li>Notes: <p><%= listed_coffee.notes %><p/></li>
+</ul>
+<br>
+<% end %>
 <a href='/coffees/new'>Add a coffee</a>

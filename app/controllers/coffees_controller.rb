@@ -23,7 +23,6 @@ class CoffeesController < ApplicationController
       if params[:name] == ''
         redirect '/coffees/new'
       else
-        # @list_selection = CoffeeList.where(:list_name => params[:coffee_list_id])
         @new_coffee = Coffee.new(
           name: params[:name],
           coffee_list_id: params[:coffee_list_id],
