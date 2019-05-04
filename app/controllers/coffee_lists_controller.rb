@@ -1,5 +1,5 @@
+#  Coffeelists Controller
 class CoffeeListsController < ApplicationController
-
   get '/coffeelists' do
     if logged_in?
       @user = current_user
