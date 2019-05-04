@@ -43,4 +43,16 @@ class CoffeeListsController < ApplicationController
       redirect '/session/new'
     end
   end
+
+  delete '/coffeelists/:id/delete' do
+    if logged_in?
+      @coffeelist = CoffeeList.find_by_id(params[:id])
+      if @coffeelist && @coffeelist.user == current_user
+        @coffeelist.delete
+      end
+      redirect to '/coffeelists'
+    else
+      redirect to '/login'
+    end
+  end
 end
