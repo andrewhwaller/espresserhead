@@ -10,7 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_02_210106) do
+ActiveRecord::Schema.define(version: 2019_05_04_163841) do
+
+  create_table "coffee_lists", force: :cascade do |t|
+    t.string "list_name"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "coffees", force: :cascade do |t|
+    t.string "name"
+    t.integer "coffee_list_id"
+    t.string "prep_method"
+    t.integer "rating"
+    t.string "origin"
+    t.string "roast"
+    t.text "notes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "username"
