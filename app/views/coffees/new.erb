@@ -8,7 +8,7 @@
   <select name="coffee_list_id" id="coffee[coffee_list_id]">
   <% @list_options = current_user.coffee_lists.all %>
   <% @list_options.each do |list| %>
-    <option value="<%list.id%>"><%= list.list_name %></option>
+    <option value="<%= list.id %>"><%= list.list_name %></option>
   <%end%>
   </select>
   <br>
