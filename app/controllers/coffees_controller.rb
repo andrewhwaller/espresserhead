@@ -2,8 +2,8 @@
 class CoffeesController < ApplicationController
   get '/coffees' do
     if logged_in?
-      @user = current_user
-      @coffees = @user.coffee_lists.coffees.all
+      # @user = current_user
+      # @coffees = @user.coffee_lists.coffees.all
       erb :'coffees/show'
     else
       redirect '/session/new'
@@ -23,8 +23,18 @@ class CoffeesController < ApplicationController
       if params[:name] == ''
         redirect '/coffees/new'
       else
-        @coffee = current_user.coffee_lists.coffees.build(list_name: params[:list_name])
-        if @coffee.save
+        # raise params.inspect
+        # @list_selection = CoffeeList.find(params[:coffee_list_id])
+        @new_coffee = Coffee.new(
+          name: params[:name],
+          coffee_list_id: params[:coffee_list_id],
+          prep_method: params[:prep_method],
+          rating: params[:rating],
+          origin: params[:origin],
+          roast: params[:roast],
+          notes: params[:notes]
+        )
+        if @new_coffee.save
           redirect to '/coffees'
         else
           redirect '/coffees/new'
