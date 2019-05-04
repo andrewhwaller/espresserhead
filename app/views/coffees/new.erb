@@ -3,8 +3,12 @@
 <form method="POST" action="/coffees">
   <label>Coffee name:</label>
   <input type="text" name="list_name" id="coffee[name]">
-  <%# <label>List name:</label>
-  <input type="text" name="coffee_list_id" id="coffee[coffee_list_id]"> %>
+  <% @lists_options = current_user.coffee_lists.all %>
+  <% @list_options.each do |list| %>
+  <label>Coffee list:</label>
+  <select name="coffee_list_id" id="coffee[coffee_list_id]">
+    <option value="coffee_list_id"><%= list.list_name %></option>
+  </select>
   <select name="prep_method" id="coffee[prep_method]">
     <option value="espresso">Espresso</option>
     <option value="pourover">Pourover</option>
