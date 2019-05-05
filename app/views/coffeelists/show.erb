@@ -4,8 +4,17 @@
   <div>
     <a href='/coffeelists/<%=list.id%>'><%= list.list_name %></a>
     <ul>
-      <li><a href=''>Edit list</a></li>
-      <li><a href='/coffeelists/<%=list.id%>/delete'>Delete list</a></li>
+      <li>
+        <form method="GET" action='/coffeelists/<%=list.id%>/edit'>
+          <input type="submit" name="submit" value="Edit list">
+        </form>
+      </li>
+      <li>
+        <form method="POST" action='/coffeelists/<%=list.id%>/delete'>
+          <input type="hidden" name="_method" value="DELETE">
+          <input type="submit" value="Delete list">
+        </form>
+      </li>
     </ul>
   </div>
 <% end %>
