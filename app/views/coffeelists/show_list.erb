@@ -11,6 +11,12 @@
   <li>Notes: <%= listed_coffee.notes %></li>
 </ul>
 <br>
-<a href="/coffees/<%= listed_coffee.id %>/edit">Edit coffee</a>
+<form method="GET" action="/coffees/<%= listed_coffee.id %>/edit">
+  <input type="submit" name="submit" value="Edit coffee">
+</form>
+<form method="POST" action='/coffees/<%=listed_coffee.id%>/delete'>
+  <input type="hidden" name="_method" value="DELETE">
+  <input type="submit" value="Delete coffee">
+</form>
 <% end %>
 <a href='/coffees/new'>Add a coffee</a>
