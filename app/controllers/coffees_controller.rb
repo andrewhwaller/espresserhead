@@ -53,7 +53,7 @@ class CoffeesController < ApplicationController
   patch '/coffees/:id' do
     if logged_in?
       if params[:name] == ''
-        redirect "/coffees/#{@coffee.id}/edit"
+        redirect "/coffees/#{params[:id]}/edit"
       else
         @coffee = Coffee.find_by_id(params[:id])
         if @coffee && @coffee.coffee_list.user == current_user
@@ -66,14 +66,26 @@ class CoffeesController < ApplicationController
             roast: params[:roast],
             notes: params[:notes]
             )
-            redirect to "/coffeelists/#{@coffee.coffee_list_id}"
+            redirect "/coffeelists/#{@coffee.coffee_list_id}"
           else
-            redirect "/coffees/#{@coffee.id}/edit"
+            redirect "/coffees/#{params[:id]}/edit"
           end
         end
       end
     else
       redirect '/session/new'
+    end
+  end
+
+  delete '/coffees/:id/delete' do
+    if logged_in?
+      @coffee = Coffee.find_by_id(params[:id])
+      if @coffee && @coffee.coffee_list.user == current_user
+        @coffee.delete
+      end
+      redirect "/coffeelists/#{@coffee.coffee_list_id}"
+    else
+      redirect to '/session/new'
     end
   end
 end
