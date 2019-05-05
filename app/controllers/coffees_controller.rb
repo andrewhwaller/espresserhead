@@ -42,4 +42,11 @@ class CoffeesController < ApplicationController
       redirect '/session/new'
     end
   end
+
+  get '/coffees/:id/edit' do
+    if logged_in?
+      @coffee = Coffee.find_by_id(params[:id])
+      erb :'coffees/edit'
+    end
+  end
 end

@@ -8,8 +8,9 @@
   <li>Origin: <%= listed_coffee.origin %></li>
   <li>Roast: <%= listed_coffee.roast %></li>
   <li>Rating: <%= listed_coffee.rating %></li>
-  <li>Notes: <p><%= listed_coffee.notes %><p/></li>
+  <li>Notes: <%= listed_coffee.notes %></li>
 </ul>
 <br>
+<a href="/coffees/<%= listed_coffee.id %>/edit">Edit coffee</a>
 <% end %>
 <a href='/coffees/new'>Add a coffee</a>

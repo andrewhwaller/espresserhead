@@ -1,6 +1,14 @@
-<h2>New Coffee</h2>
-
-<form method="POST" action="/coffees">
+<ul>
+  <li><%= @coffee.name %></li>
+  <li>Preparation method: <%= @coffee.prep_method %></li>
+  <li>Origin: <%= @coffee.origin %></li>
+  <li>Roast: <%= @coffee.roast %></li>
+  <li>Rating: <%= @coffee.rating %></li>
+  <li>Notes: <%= @coffee.notes %></li>
+</ul>
+<h4>Edit coffee</h4>
+<form method="POST" action="/coffees/<%= @coffee.id %>">
+  <input id="hidden" type="hidden" name="_method" value="PATCH">
   <label>Coffee name:</label>
   <input type="text" name="name" id="coffee[name]">
   <br>
@@ -42,5 +50,5 @@
   <br>
   <label for="notes">Notes:</label>
   <textarea name="notes" id="coffee[notes] rows="10" cols="30" placeholder="Notes on coffee, e.g., prep tips, recipes, ratios, etc."></textarea>
-  <input type="submit" value="Submit">
+  <input type="submit" value="Save">
 </form>
