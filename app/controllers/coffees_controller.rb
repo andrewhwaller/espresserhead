@@ -33,7 +33,7 @@ class CoffeesController < ApplicationController
           notes: params[:notes]
         )
         if @new_coffee.save
-          redirect to '/coffees'
+          redirect to '/coffeelists'
         else
           redirect '/coffees/new'
         end

@@ -1,12 +1,9 @@
-<p>This is where a detail view for the list would go</p>
+<br>
 <%= @coffeelist.list_name %>
-<br>
-<%= @coffeelist.id %>
-<br>
 <% @coffeelist.coffees.each do |listed_coffee| %>
 <br>
-<h4><%= listed_coffee.name %>
 <ul>
+  <li><%= listed_coffee.name %></li>
   <li>Preparation method: <%= listed_coffee.prep_method %></li>
   <li>Origin: <%= listed_coffee.origin %></li>
   <li>Roast: <%= listed_coffee.roast %></li>
