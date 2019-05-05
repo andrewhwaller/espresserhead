@@ -66,7 +66,7 @@ class CoffeesController < ApplicationController
             roast: params[:roast],
             notes: params[:notes]
             )
-            redirect to '/coffeelists'
+            redirect to "/coffeelists/#{@coffee.coffee_list_id}"
           else
             redirect "/coffees/#{@coffee.id}/edit"
           end
