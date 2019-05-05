@@ -10,10 +10,13 @@
 <form method="POST" action="/coffees/<%= @coffee.id %>">
   <input id="hidden" type="hidden" name="_method" value="PATCH">
   <label>Coffee name:</label>
-  <input type="text" name="name" id="coffee[name]">
+  <input type="text" name="name" id="coffee[name]" placeholder="<%=@coffee.name%>">
   <br>
   <label>Add to list:</label>
   <select name="coffee_list_id" id="coffee[coffee_list_id]">
+  <% current_list_id = @coffee.coffee_list_id %>
+  <% current_list = CoffeeList.find_by_id(current_list_id) %>
+    <option value="" disabled selected><%= current_list.list_name %></option>
   <% @list_options = current_user.coffee_lists.all %>
   <% @list_options.each do |list| %>
     <option value="<%= list.id %>"><%= list.list_name %></option>
@@ -22,6 +25,7 @@
   <br>
   <label for="prep_method">Preparation method:</label>
   <select name="prep_method" id="coffee[prep_method]">
+    <option value="" disabled selected><%=@coffee.prep_method%></option>
     <option value="Espresso">Espresso</option>
     <option value="Pourover">Pourover</option>
     <option value="Drip">Drip</option>
@@ -29,7 +33,8 @@
   </select>
   <br>
   <label for="roast">Roast type:</label>
-  <select name="roast" id="coffee[roast]">
+  <select name="roast" id="coffee[roast]" placeholder="<%=@coffee.roast%>">
+    <option value="" disabled selected><%=@coffee.roast%></option>
     <option value="Light">Light</option>
     <option value="Medium">Medium</option>
     <option value="Medium Dark">Medium Dark</option>
@@ -37,10 +42,10 @@
   </select>
   <br>
   <label for="origin">Origin:</label>
-  <input type="text" name="origin" id="coffee[origin]">
+  <input type="text" name="origin" id="coffee[origin]" placeholder="<%=@coffee.origin%>">
   <br>
   <label for="rating">Rating:</label>
-  <select name="rating" id="coffee[rating]">
+  <select name="rating" id="coffee[rating]" placeholder="<%=@coffee.rating%>">
     <option value="1">1</option>
     <option value="2">2</option>
     <option value="3">3</option>
@@ -49,6 +54,6 @@
   </select>
   <br>
   <label for="notes">Notes:</label>
-  <textarea name="notes" id="coffee[notes] rows="10" cols="30" placeholder="Notes on coffee, e.g., prep tips, recipes, ratios, etc."></textarea>
+  <textarea name="notes" id="coffee[notes] rows="10" cols="30" placeholder="<%=@coffee.notes%>"></textarea>
   <input type="submit" value="Save">
 </form>
