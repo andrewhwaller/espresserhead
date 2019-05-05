@@ -49,4 +49,30 @@ class CoffeesController < ApplicationController
       erb :'coffees/edit'
     end
   end
+
+  patch '/coffees/:id' do
+    if logged_in?
+      if params[:name] == ''
+        redirect '/coffees/new'
+      else
+        @coffee = Coffee.find_by_id(params[:id])
+        if @coffee && @coffee.coffee_list.user == current_user
+          if @coffee.update(
+            name: params[:name],
+            coffee_list_id: params[:coffee_list_id],
+            prep_method: params[:prep_method],
+            rating: params[:rating],
+            origin: params[:origin],
+            roast: params[:roast],
+            notes: params[:notes]
+          )
+          redirect to '/coffeelists'
+        else
+          redirect "/coffees/#{@coffee.id}/edit"
+        end
+      end
+    else
+      redirect '/session/new'
+    end
+
 end
