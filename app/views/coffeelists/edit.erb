@@ -1,6 +1,6 @@
 <form method="POST" action="/coffeelists/<%= @coffeelist.id %>">
   <input id="hidden" type="hidden" name="_method" value="PATCH">
   <label>List name:</label>
-  <input type="text" name="list_name" id="coffeelist[list_name]">
+  <input type="text" name="list_name" id="coffeelist[list_name]" required>
   <input type="submit" value="Save">
 </form>

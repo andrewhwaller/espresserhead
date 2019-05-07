@@ -10,10 +10,10 @@
 <form method="POST" action="/coffees/<%= @coffee.id %>">
   <input id="hidden" type="hidden" name="_method" value="PATCH">
   <label>Coffee name:</label>
-  <input type="text" name="name" id="coffee[name]" placeholder="<%=@coffee.name%>">
+  <input type="text" name="name" id="coffee[name]" placeholder="<%=@coffee.name%>" required>
   <br>
   <label>Add to list:</label>
-  <select name="coffee_list_id" id="coffee[coffee_list_id]">
+  <select name="coffee_list_id" id="coffee[coffee_list_id]" required>
   <% current_list_id = @coffee.coffee_list_id %>
   <% current_list = CoffeeList.find_by_id(current_list_id) %>
     <option value="" disabled selected><%= current_list.list_name %></option>
@@ -24,7 +24,7 @@
   </select>
   <br>
   <label for="prep_method">Preparation method:</label>
-  <select name="prep_method" id="coffee[prep_method]">
+  <select name="prep_method" id="coffee[prep_method]" required>
     <option value="" disabled selected><%=@coffee.prep_method%></option>
     <option value="Espresso">Espresso</option>
     <option value="Pourover">Pourover</option>
@@ -33,7 +33,7 @@
   </select>
   <br>
   <label for="roast">Roast type:</label>
-  <select name="roast" id="coffee[roast]" placeholder="<%=@coffee.roast%>">
+  <select name="roast" id="coffee[roast]" placeholder="<%=@coffee.roast%>" required>
     <option value="" disabled selected><%=@coffee.roast%></option>
     <option value="Light">Light</option>
     <option value="Medium">Medium</option>
@@ -42,10 +42,10 @@
   </select>
   <br>
   <label for="origin">Origin:</label>
-  <input type="text" name="origin" id="coffee[origin]" placeholder="<%=@coffee.origin%>">
+  <input type="text" name="origin" id="coffee[origin]" placeholder="<%=@coffee.origin%>" required>
   <br>
   <label for="rating">Rating:</label>
-  <select name="rating" id="coffee[rating]" placeholder="<%=@coffee.rating%>">
+  <select name="rating" id="coffee[rating]" placeholder="<%=@coffee.rating%>" required>
     <option value="1">1</option>
     <option value="2">2</option>
     <option value="3">3</option>
