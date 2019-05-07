@@ -21,7 +21,7 @@ class UsersController < ApplicationController
 
   post '/session' do
     login(params[:username], params[:password])
-    redirect '/index'
+    redirect '/coffeelists'
   end
 
   get '/session' do

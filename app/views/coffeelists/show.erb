@@ -1,20 +1,15 @@
-<h1>these are the coffee lists</h1>
+<h3>Your Coffee Lists</h3>
 
 <% @coffeelists.each do |list| %>
   <div>
-    <a href='/coffeelists/<%=list.id%>'><%= list.list_name %></a>
-    <ul>
-      <li>
+    <a href='/coffeelists/<%=list.id%>'><h6><%= list.list_name %></h6></a>
         <form method="GET" action='/coffeelists/<%=list.id%>/edit'>
-          <input type="submit" name="submit" value="Edit list">
+          <input class="btn btn-success" type="submit" name="submit" value="Edit list">
         </form>
-      </li>
-      <li>
         <form method="POST" action='/coffeelists/<%=list.id%>/delete'>
           <input type="hidden" name="_method" value="DELETE">
-          <input type="submit" value="Delete list">
+          <input class="btn btn-danger" type="submit" value="Delete list">
         </form>
-      </li>
-    </ul>
   </div>
+  <br>
 <% end %>

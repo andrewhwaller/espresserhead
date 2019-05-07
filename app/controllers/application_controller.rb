@@ -11,7 +11,9 @@ class ApplicationController < Sinatra::Base
     if !logged_in?
       redirect '/session/new'
     else
-      erb :'users/index'
+      @user = current_user
+      @coffeelists = @user.coffee_lists.all
+      erb :'coffeelists/show'
     end
   end
 

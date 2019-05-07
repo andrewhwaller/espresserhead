@@ -1,22 +1,22 @@
-<br>
-<%= @coffeelist.list_name %>
+<h4><%= @coffeelist.list_name %></h4>
 <% @coffeelist.coffees.each do |listed_coffee| %>
 <br>
 <ul>
-  <li><%= listed_coffee.name %></li>
-  <li>Preparation method: <%= listed_coffee.prep_method %></li>
-  <li>Origin: <%= listed_coffee.origin %></li>
-  <li>Roast: <%= listed_coffee.roast %></li>
-  <li>Rating: <%= listed_coffee.rating %></li>
-  <li>Notes: <%= listed_coffee.notes %></li>
+  <li style="list-style-type: none;"><h5><%= listed_coffee.name %></h5></li>
+  <li style="list-style-type: none;">Preparation method: <%= listed_coffee.prep_method %></li>
+  <li style="list-style-type: none;">Origin: <%= listed_coffee.origin %></li>
+  <li style="list-style-type: none;">Roast: <%= listed_coffee.roast %></li>
+  <li style="list-style-type: none;">Rating: <%= listed_coffee.rating %></li>
+  <li style="list-style-type: none;">Notes: <%= listed_coffee.notes %></li>
 </ul>
-<br>
 <form method="GET" action="/coffees/<%= listed_coffee.id %>/edit">
-  <input type="submit" name="submit" value="Edit coffee">
+  <input class="btn btn-info" type="submit" name="submit" value="Edit coffee">
 </form>
 <form method="POST" action='/coffees/<%=listed_coffee.id%>/delete'>
   <input type="hidden" name="_method" value="DELETE">
-  <input type="submit" value="Delete coffee">
+  <input class="btn btn-danger" type="submit" value="Delete coffee">
 </form>
 <% end %>
-<a href='/coffees/new'>Add a coffee</a>
+<br>
+<a class="btn btn-success" href='/coffees/new'>Add a coffee</a>
+<br>
