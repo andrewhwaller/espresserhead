@@ -29,14 +29,6 @@ class UsersController < ApplicationController
     redirect '/'
   end
 
-  get '/index' do
-    if logged_in?
-      erb :'/users/index'
-    else
-      redirect '/session/new'
-    end
-  end
-
   get '/firewalkwithme' do
     if logged_in?
       erb :'/electricity'
