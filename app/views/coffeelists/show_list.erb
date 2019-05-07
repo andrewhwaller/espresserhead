@@ -1,6 +1,7 @@
 <h4><%= @coffeelist.list_name %></h4>
 <% @coffeelist.coffees.each do |listed_coffee| %>
 <br>
+<div class="container-fluid">
 <ul>
   <li style="list-style-type: none;"><h5><%= listed_coffee.name %></h5></li>
   <li style="list-style-type: none;">Preparation method: <%= listed_coffee.prep_method %></li>
@@ -16,6 +17,7 @@
   <input type="hidden" name="_method" value="DELETE">
   <input class="btn btn-danger" type="submit" value="Delete coffee">
 </form>
+</div>
 <% end %>
 <br>
 <a class="btn btn-success" href='/coffees/new'>Add a coffee</a>
