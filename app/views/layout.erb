@@ -8,20 +8,20 @@
   </head>
   <body>
     <header>
-     <% if logged_in? %>
     <nav class="navbar navbar-inverse">
       <div class="container">
         <div class="navbar-header">
           <a class="navbar-brand" href="/">ESPRESSERHEAD</a>
         </div>
         <ul class="nav navbar-nav">
+        <% if logged_in? %>
           <li><a href="/session">Logout</a></li>
           <li><a href="/coffeelists">View Lists</a></li>
           <li><a href="/coffeelists/new">Create New List</a></li>
+        <% end %>
         </ul>
       </div>
     </nav>
-    <% end %>
     </header>
     <div class="container">
       <%= yield %>
