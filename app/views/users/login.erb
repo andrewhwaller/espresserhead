@@ -1,12 +1,9 @@
 <form method="POST" action="/session">
-    <label>Username: </label>
-    <input type="text" name="username" id="username" placeholder="username">
-    <br>
-    <label>Password: </label>
-    <input type="password" name="password" id="password" placeholder="password">
-    <br>
-    <input class="btn btn-success" type="submit" value="Submit">
+    <label class="login-field-username-label">USERNAME_</label>
+    <input class="login-field-username" type="text" name="username" id="username">
+    <label class="login-field-password-label">PASSWORD_</label>
+    <input class="login-field-password" type="password" name="password" id="password" placeholder="password">
+    <input class="btn btn-success login-field-submit" type="submit" value="SUBMIT">
 </form>
 <br>
-<h6>Need to create an account?</h6>
-<a class="btn btn-info" href="/users/new">Sign up here.</a>
+<a class="btn btn-info login-sign-up-button" href="/users/new">SIGN UP</a>
