@@ -16,7 +16,7 @@ class UsersController < ApplicationController
   end
   
   get '/session/new' do
-    erb :'users/login'
+    erb :'users/login', :layout => :'users/login'
   end
 
   post '/session' do

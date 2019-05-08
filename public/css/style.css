@@ -12,6 +12,21 @@
     text-decoration: none;
   }
 
+.login-view-main-header {
+  font-family: Karla;
+  font-style: italic;
+  font-weight: bold;
+  font-size: 96px;
+  line-height: 112px;
+  align-items: center;
+  text-align: center;
+  text-transform: uppercase;
+  
+  color: #FFEE59;
+  
+  mix-blend-mode: normal;
+  }
+
 .login-field-username {
     position: absolute;
     left: 39.72%;
