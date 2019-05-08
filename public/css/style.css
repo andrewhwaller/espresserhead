@@ -40,8 +40,7 @@
     right: 39.65%;
     top: 43.44%;
     bottom: 53.22%;
-    max-width: 40%;
-    min-width: 25%;
+    width: 250px;
     display: flex;
     align-items: center;
     justify-content: center
@@ -53,8 +52,7 @@
     right: 39.65%;
     top: 50.4%;
     bottom: 46.25%;
-    max-width: 40%;
-    min-width: 25%;
+    width: 250px;
     display: flex;
     align-items: center;
     justify-content: center
@@ -67,8 +65,7 @@
     left: 39.72%;
     right: 39.65%;
     top: 57.44%;
-    max-width: 40%;
-    min-width: 25%;
+    width: 250px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -81,8 +78,6 @@
     left: 39.72%;
     right: 39.65%;
     top: 64.44%;
-    max-width: 40%;
-    min-width: 25%;
     display: flex;
     align-items: center;
     justify-content: center
