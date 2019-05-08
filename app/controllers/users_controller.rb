@@ -29,7 +29,7 @@ class UsersController < ApplicationController
     redirect '/'
   end
 
-  get '/firewalkwithme' do
+  get '/electricity' do
     if logged_in?
       erb :'/electricity'
     else
