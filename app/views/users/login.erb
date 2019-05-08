@@ -11,18 +11,31 @@
   </head>
   <body class="login-page-bg">
     <header>
-    <h1 class="login-view-main-header">ESPRESSERHEAD</h1>
     </header>
-    <div class="input-group">
-    <form method="POST" action="/session">
-        <label class="login-field-username-label">USERNAME_</label>
-        <input class="login-field-username" type="text" name="username" id="username">
-        <label class="login-field-password-label">PASSWORD_</label>
-        <input class="login-field-password" type="password" name="password" id="password">
-        <input class="btn btn-warning login-field-submit" type="submit" value="SUBMIT">
-    </form>
-        <br>
-        <a class="btn btn-info login-sign-up-button" href="/users/new">SIGN UP</a>
+    <div class="container">
+    <div class="row h-50 p-5 justify-content-center align-items-center">
+        <h1 class="login-view-main-header">ESPRESSERHEAD</h1>
+    </div>
+      <div class="row p-5 h-50 justify-content-center align-items-center">
+        <div class="col-xs-5 align-self-center">
+           <form method="POST" action="/session">
+            <div class="form-group">
+              <label class="login-field-label" for="username">USERNAME_</label>
+              <input class="login-field-username form-control" type="text" name="username" id="username">
+            </div>
+            <div class="form-group">
+              <label class="login-field-label" for="password">PASSWORD_</label>
+              <input class="login-field-password form-control" type="password" name="password" id="password">
+            </div>
+            <div>
+              <input class="btn btn-warning login-field-submit w-100 mt-4" type="submit" value="SUBMIT">
+            </div>
+            <div>
+              <a class="btn btn-primary login-sign-up-button w-100 mt-4" href="/users/new">SIGN UP</a>
+            </div>
+            </form>
+        </div>
+      </div>
     </div>
   </body>
 </html>
