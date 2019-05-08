@@ -1,3 +1,10 @@
+.login-page-bg {
+  left: 0px;
+  top: 0px;
+  
+  background: url(kumiko-shimizu-741440-unsplash.jpg);
+ }
+
 .main-layout-header {
     font-family: Karla;
     font-style: italic;
@@ -16,11 +23,10 @@
   font-family: Karla;
   font-style: italic;
   font-weight: bold;
-  font-size: 96px;
-  line-height: 112px;
+  font-size: 48px;
+  line-height: 56px;
   align-items: center;
   text-align: center;
-  text-transform: uppercase;
   
   color: #FFEE59;
   
