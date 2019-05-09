@@ -1,33 +1,41 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>ESPRESSERHEAD</title>
-    <link rel="stylesheet" type="text/css" href="/css/bootstrap.css"/>
-    <link rel="stylesheet" type="text/css" href="/css/style.css"/>
-    <link href="https://fonts.googleapis.com/css?family=Karla:700i" rel="stylesheet">
-    <script src="/js/bootstrap.min.js"></script>
-  </head>
-  <body>
-    <header>
-      <nav class="navbar navbar-dark bg-dark navbar-expand{-sm|-md|-lg|-xl}">
-        <div class="container">
-          <div class="navbar-header">
-            <a class="navbar-brand" href="/"><h1 class="main-layout-header">ESPRESSERHEAD</h1></a>
-          </div>
-          <ul class="nav navbar-nav">
-          <% if logged_in? %>
-            <li><a class="main-layout-links" href="/session">LOGOUT</a></li>
-            <li><a class="main-layout-links" href="/coffeelists">VIEW LISTS</a></li>
-            <li><a class="main-layout-links" href="/coffeelists/new">NEW LIST</a></li>
-          <% end %>
-          </ul>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Karla:400,400i,700,700i" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <a href="#" class="navbar-brand navbar-header-text">ESPRESSERHEAD</a>
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMenu">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a href="#" class="nav-link">coffee</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">coffeeshops</a>
+                </li>
+            </ul>
         </div>
-      </nav>
-    </header>
-    <div class="container">
-      <%= yield %>
-    </div>
-  </body>
+
+    </nav>
+</div>
+<%=yield%>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="/js/bootstrap.min.js"></script>
+</body>
+
 </html>
