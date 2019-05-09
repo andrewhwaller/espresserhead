@@ -12,30 +12,30 @@
 </head>
 
 <body class="d-flex flex-column">
-    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-        <a href="#" class="navbar-brand navbar-header-text">ESPRESSERHEAD</a>
-        <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarMenu">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarMenu">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a href="/coffeelists" class="nav-link">coffee</a>
-                </li>
-                <li class="nav-item">
-                    <a href="/session" class="nav-link">logout</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+    <nav class="navbar navbar-light bg-light fixed-top">
+    <a class="navbar-brand navbar-header-text" href="#">ESPRESSERHEAD</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbar1">
+        ☰
+    </button>
+    <div class="navbar-collapse collapse" id="collapsingNavbar1">
+        <ul class="nav navbar-nav">
+            <li class="nav-item">
+                <a href="/coffeelists" class="nav-link">coffee</a>
+            </li>
+            <li class="nav-item">
+                <a href="/session" class="nav-link">logout</a>
+            </li>
+        </ul>
+    </div>
+</nav>
 <%=yield%>
 
-    <footer id="sticky-footer" class="py-4 bg-dark text-white-50">
+    <footer id="sticky-footer" class="py-4 bg-light text-black-50 align-baseline">
         <div class="container text-center">
-            <small>Copyright &copy; Your Website</small>
+            <small>Copyright &copy; Andrew H. Waller</small>
         </div>
     </footer>
-      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous"></script>
