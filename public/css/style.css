@@ -64,6 +64,12 @@
     color: white;
   }
 
+  .navbar-karla-style {
+    font-family: Karla;
+    font-style: italic;
+    font-weight: normal;
+  }
+
   @media (min-width: 576px) {
     .login-view-main-header {
       font-family: Karla;
