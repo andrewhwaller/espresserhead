@@ -71,6 +71,7 @@
   }
 
   @media (min-width: 576px) {
+    
     .login-view-main-header {
       font-family: Karla;
       font-style: italic;
