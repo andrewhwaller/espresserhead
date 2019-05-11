@@ -1,15 +1,17 @@
 <% @coffeelists.each do |list| %>
-    <div class="card m-auto" style="width: 18rem;">
+    <div class="card m-auto" style="width: 30rem;">
       <div class="card-body">
         <h5 class="card-title"><a href='/coffeelists/<%=list.id%>'><%= list.list_name %></a></h5>
         <div class="card-text">
           <%=list.list_description%>
         </div>
-        <div class="row">
-          <div class="col">
+        <div class="row justify-content-center">
+          <div class="col-md-6">
             <form method="GET" action='/coffeelists/<%=list.id%>/edit'>
-              <input class="btn btn-primary form-control btn-block mb-3" type="submit" name="submit" value="Edit list">
+              <input class="btn btn-primary form-control btn-block" type="submit" name="submit" value="Edit list">
             </form>
+          </div>
+          <div class="col-md-6">
             <form method="POST" action='/coffeelists/<%=list.id%>/delete'>
               <input type="hidden" name="_method" value="DELETE">
               <input class="btn btn-danger form-control btn-block" type="submit" value="Delete list">
