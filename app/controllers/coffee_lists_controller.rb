@@ -58,7 +58,10 @@ class CoffeeListsController < ApplicationController
       else
         @coffeelist = CoffeeList.find_by_id(params[:id])
         if @coffeelist && @coffeelist.user == current_user
-          if @coffeelist.update(list_name: params[:list_name])
+          if @coffeelist.update(
+            list_name: params[:list_name],
+            list_description: params[:list_description]
+            )
             redirect "/coffeelists/#{params[:id]}"
           else
             redirect "/coffeelists/#{params[:id]}/edit"

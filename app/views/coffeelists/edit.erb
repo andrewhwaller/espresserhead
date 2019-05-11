@@ -1,7 +1,18 @@
-
-<form method="POST" action="/coffeelists/<%= @coffeelist.id %>">
-  <input id="hidden" type="hidden" name="_method" value="PATCH">
-  <label>List name:</label>
-  <input type="text" name="list_name" id="coffeelist[list_name]" required>
-  <input class="btn btn-success" type="submit" value="Save">
-</form>
+<div class="card m-auto" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Edit <%=@coffeelist.list_name%></h5>
+    <div class="card-text">
+      <form method="POST" action="/coffeelists/<%= @coffeelist.id %>">
+        <input id="hidden" type="hidden" name="_method" value="PATCH">
+        <input class="form-control mb-3" type="text" name="list_name" id="coffeelist[list_name]" placeholder="Edit your list's name..." required>
+        <textarea class="form-control" type="text" name="list_description" id="coffeelist[list_description]" placeholder="Describe your list..." required></textarea>
+    </div>
+    <div class="row">
+      <div class="col">
+        <input class="btn btn-success form-control mb-3" type="submit" value="Save">
+        <a href="/coffeelists" class="btn btn-danger form-control" role="button" value="Cancel">Cancel</a>
+      </form>
+      </div>
+    </div>
+  </div>
+</div>
