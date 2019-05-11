@@ -4,8 +4,8 @@
     <div class="card-text">
       <form method="POST" action="/coffeelists/<%= @coffeelist.id %>">
         <input id="hidden" type="hidden" name="_method" value="PATCH">
-        <input class="form-control mb-3" type="text" name="list_name" id="coffeelist[list_name]" placeholder="Edit your list's name..." required>
-        <textarea class="form-control" type="text" name="list_description" id="coffeelist[list_description]" placeholder="Describe your list..." required></textarea>
+        <input class="form-control mb-3" type="text" name="list_name" id="coffeelist[list_name]" placeholder="<%=@coffeelist.list_name%>" required>
+        <textarea class="form-control" type="text" name="list_description" id="coffeelist[list_description]" placeholder="<%=@coffeelist.list_description%>" required></textarea>
     </div>
     <div class="row">
       <div class="col-md-6">
