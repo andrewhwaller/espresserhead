@@ -137,3 +137,9 @@
 #sticky-footer {
   flex-shrink: none;
 }
+
+@media (min-width: 576px) {
+  .card-col-mobile {
+    flex-direction: column;
+  }
+}
