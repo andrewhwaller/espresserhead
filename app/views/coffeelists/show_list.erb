@@ -1,24 +1,44 @@
-<h4><%= @coffeelist.list_name %></h4>
-<% @coffeelist.coffees.each do |listed_coffee| %>
-<br>
-<div class="container-fluid">
-<ul>
-  <li style="list-style-type: none;"><h5><%= listed_coffee.name %></h5></li>
-  <li style="list-style-type: none;">Preparation method: <%= listed_coffee.prep_method %></li>
-  <li style="list-style-type: none;">Origin: <%= listed_coffee.origin %></li>
-  <li style="list-style-type: none;">Roast: <%= listed_coffee.roast %></li>
-  <li style="list-style-type: none;">Rating: <%= listed_coffee.rating %></li>
-  <li style="list-style-type: none;">Notes: <%= listed_coffee.notes %></li>
-</ul>
-<form method="GET" action="/coffees/<%= listed_coffee.id %>/edit">
-  <input class="btn btn-info" type="submit" name="submit" value="Edit coffee">
-</form>
-<form method="POST" action='/coffees/<%=listed_coffee.id%>/delete'>
-  <input type="hidden" name="_method" value="DELETE">
-  <input class="btn btn-danger" type="submit" value="Delete coffee">
-</form>
+<div class="row m-auto">
+  <div class="col">
+    <h4>
+      <%= @coffeelist.list_name %>
+      <small class="text-muted"><%=@coffeelist.coffees.count%> entries</small>
+    </h4>
+  </div>
 </div>
-<% end %>
-<br>
-<a class="btn btn-success" href='/coffees/new'>Add a coffee</a>
-<br>
+<% @coffeelist.coffees.each do |listed_coffee| %>
+<div class="card m-auto navbar-karla-style-link" style="width: 30rem;">
+      <div class="card-header bg-success">
+        <h5><%= listed_coffee.name %></h5>
+      </div>
+      <div class="card-body">
+        <div class="card-text">
+          <dl class="row m-auto">
+            <dt class="col-sm-5">Prep Method</dt>
+              <dd class="col-sm-7"><%= listed_coffee.prep_method %></dd>
+            <dt class="col-sm-5">Origin</dt>
+              <dd class="col-sm-7"><%= listed_coffee.origin %></dd>
+            <dt class="col-sm-5">Roast</dt>
+              <dd class="col-sm-7"><%= listed_coffee.roast %></dd>
+            <dt class="col-sm-5">User rating</dt>
+              <dd class="col-sm-7"><%= listed_coffee.rating %></dd>
+            <dt class="col-sm-5">Notes</dt>
+              <dd class="col-sm-7"><p><%= listed_coffee.notes %></p></dd>
+          </dl>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-md-6">
+            <form method="GET" action='#'>
+              <input class="btn btn-dark form-control btn-block navbar-karla-style-link" type="submit" name="submit" value="Edit coffee">
+            </form>
+          </div>
+          <div class="col-md-6">
+            <form method="POST" action='#'>
+              <input type="hidden" name="_method" value="DELETE">
+              <input class="btn btn-danger form-control btn-block navbar-karla-style-link" type="submit" value="Delete coffee">
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>  
+    <% end %>
