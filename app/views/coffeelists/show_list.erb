@@ -1,5 +1,5 @@
+<div class="col w-100">
 <div class="row m-auto">
-  <div class="col">
     <h4 class="navbar-karla-style-link">
       <strong><%= @coffeelist.list_name %></strong>
       <br>
@@ -7,29 +7,28 @@
     </h4>
   </div>
 </div>
-<div class="col vw-100 align-items-center m-auto">
-<div class="d-sm-inline-flex flex-row flex-sm-wrap justify-content-center">
-<% @coffeelist.coffees.each do |listed_coffee| %>
-<div class="card m-sm-3" style="width: 25rem;">
-      <div class="card-header bg-success text-truncate">
-        <span class="card-title text-dark text-uppercase"><%= listed_coffee.name %></span>
-      </div>
-      <div class="card-body">
-        <div class="card-text">
-          <dl class="row">
-            <dt class="col-sm-5">Prep Method</dt>
-              <dd class="col-sm-7"><%= listed_coffee.prep_method %></dd>
-            <dt class="col-sm-5">Origin</dt>
-              <dd class="col-sm-7"><%= listed_coffee.origin %></dd>
-            <dt class="col-sm-5">Roast</dt>
-              <dd class="col-sm-7"><%= listed_coffee.roast %></dd>
-            <dt class="col-sm-5">User rating</dt>
-              <dd class="col-sm-7"><%= listed_coffee.rating %></dd>
-            <dt class="col-sm-5">Notes</dt>
-              <dd class="col-sm-12 text-truncate"><p><%= listed_coffee.notes %></p></dd>
-          </dl>
-        </div>
-      </div>
+<div class="container">
+    <div class="row justify-content-center">
+    <% @coffeelist.coffees.each do |listed_coffee| %>
+        <div class="col-md-5 col-xs-12">
+            <div class="card mb-4">
+                <div class="card-header bg-success text-truncate">
+                  <span class="card-title text-dark text-uppercase"><%= listed_coffee.name %></span>
+                </div>
+                <div class="card-body">
+                  <dl class="row">
+                    <dt class="col-sm-6">Prep Method</dt>
+                      <dd class="col-sm-6"><%= listed_coffee.prep_method %></dd>
+                    <dt class="col-sm-6">Origin</dt>
+                      <dd class="col-sm-6"><%= listed_coffee.origin %></dd>
+                    <dt class="col-sm-6">Roast</dt>
+                      <dd class="col-sm-6"><%= listed_coffee.roast %></dd>
+                    <dt class="col-sm-6">User rating</dt>
+                      <dd class="col-sm-6"><%= listed_coffee.rating %></dd>
+                    <dt class="col-sm-6">Notes</dt>
+                      <dd class="col-sm-12 text-truncate"><p><%= listed_coffee.notes %></p></dd>
+                  </dl>
+                </div>
       <div class="row justify-content-center m-sm-2 mb-sm-4">
         <div class="col-md-6">
           <form method="GET" action='#'>
@@ -41,9 +40,10 @@
             <input type="hidden" name="_method" value="DELETE">
             <input class="btn btn-danger form-control btn-block navbar-karla-style-link" type="submit" value="Delete coffee">
           </form>
-        </div>
+        </div>      
       </div>
-    </div>  
-    <% end %>
-    </div>
-    </div>
+            </div>
+        </div>
+         <% end %>
+      </div>
+</div>
