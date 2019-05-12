@@ -7,7 +7,8 @@
         <div class="card-text">
           <%=list.list_description%>
         </div>
-        <div class="row justify-content-center">
+      </div>
+       <div class="row justify-content-center m-sm-2 mb-sm-4">
           <div class="col-md-6">
             <form method="GET" action='/coffeelists/<%=list.id%>/edit'>
               <input class="btn btn-dark form-control btn-block navbar-karla-style-link" type="submit" name="submit" value="Edit list">
@@ -20,6 +21,5 @@
             </form>
           </div>
         </div>
-      </div>
     </div>  
 <% end %>
