@@ -1,6 +1,6 @@
 <div class="col w-100">
 <div class="row m-auto">
-    <h4 class="navbar-karla-style-link">
+    <h4 class="karla-style">
       <strong><%= @coffeelist.list_name %></strong>
       <br>
       <small class="text-muted"><%=@coffeelist.coffees.count%> entries</small>
@@ -15,7 +15,7 @@
                 <div class="card-header bg-success text-truncate">
                   <span class="card-title text-dark text-uppercase"><%= listed_coffee.name %></span>
                 </div>
-                <div class="card-body">
+                <div class="card-body karla-style">
                   <dl class="row">
                     <dt class="col-sm-6">Prep Method</dt>
                       <dd class="col-sm-6"><%= listed_coffee.prep_method %></dd>
@@ -33,13 +33,13 @@
         <div class="row">
           <div class="col-sm-6">
             <form method="GET" action='#'>
-              <input class="btn btn-dark form-control btn-block navbar-karla-style-link" type="submit" name="submit" value="Edit coffee">
+              <input class="btn btn-dark form-control btn-block karla-style" type="submit" name="submit" value="Edit coffee">
             </form>
           </div>
           <div class="col-sm-6">
-            <form method="POST" action='#'>
+            <form method="POST" action='/coffees/<%= listed_coffee.id %>/delete'>
               <input type="hidden" name="_method" value="DELETE">
-              <input class="btn btn-danger form-control btn-block navbar-karla-style-link" type="submit" value="Delete coffee">
+              <input class="btn btn-danger form-control btn-block karla-style" type="submit" value="Delete coffee">
             </form>
           </div>
         </div>     

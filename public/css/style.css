@@ -57,7 +57,7 @@
     font-size: 2rem;
   }
 
-  .navbar-karla-style-link {
+  .karla-style {
     font-family: Karla;
   }
 
@@ -137,21 +137,3 @@
 #sticky-footer {
   flex-shrink: none;
 }
-
-/* @media (min-width: 0px) {
-  .coffee-card .flex-sm-wrap {
-    flex-wrap: wrap!important;
-  }
-  .coffee-card .justify-content-center {
-    -webkit-box-pack: center!important;
-    justify-content: center!important;
-  }
-  .coffee-card .flex-row {
-    -webkit-box-orient: horizontal!important;
-    -webkit-box-direction: normal!important;
-    flex-direction: row!important;
-  }
-  .coffee-card .d-sm-inline-flex {
-    display: inline-flex!important;
-  }
-} */
