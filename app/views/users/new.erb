@@ -1,12 +1,66 @@
-<h1>Sign Up!</h1>
-<form method="POST" action="/users">
-  <label>Username:</label>
-  <input type="text" name="username" required>
-  <br>
-  <label>Email:</label>
-  <input type ="text" name="email" required>
-  <br>
-  <label>Password:</label>
-  <input type ="password" name="password" required>
-  <input type="submit" value="Sign Up">
-</form>
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>ESPRESSERHEAD</title>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/shards.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Karla:400,400i,700,700i" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <script src="/js/bootstrap.min.js"></script>
+  </head>
+  <body class="login-page-bg">
+    <header>
+    </header>
+    <div class="container-fluid">
+      <div class="row h-50 p-5 pt-3 justify-content-center align-items-center">
+        <div class="col-1 p-5">
+          <h1 class="login-view-main-header">ESPRESSERHEAD</h1>
+        </div>
+      </div>
+      <div class="row h-25 justify-content-center create-account-heading">
+        <h2 class="font-italic karla-style font-weight-bold text-white-50 m-auto">CREATE ACCOUNT</h2>
+      </div>
+      <div class="row p-5 h-50 justify-content-center align-items-center">
+        <div class="col-xs-5 align-self-center">
+          <form method="POST" action="/session">
+            <label class="login-field-label mb-n2" for="username">USERNAME_</label>
+            <div class="input-group mb-2">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <i class="fa fa-user"></i>
+                </div>
+              </div>
+              <input type="text" class="form-control" id="username" name="username">
+            </div>
+            <label class="login-field-label mb-n2" for="password">EMAIL_</label>
+            <div class="input-group mb-2">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <i class="fas fa-envelope"></i>
+                </div>
+              </div>
+              <input type="email" class="form-control" id="email" name="email">
+            </div>
+            <label class="login-field-label mb-n2" for="password">PASSWORD_</label>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <i class="fas fa-lock"></i>
+                </div>
+              </div>
+              <input type="password" class="form-control" id="password" name="password">
+            </div>
+            <button type="submit" value="SUBMIT" class="btn btn-warning w-100 mb-3">SUBMIT</button>
+          </form>
+      </div>
+    </div>
+      <div class="row justify-content-center">
+        <p class="login-p">even bad coffee is better than no coffee at all.</p>
+      </div>
+    </div>
+  <script defer src="https://use.fontawesome.com/releases/v5.8.2/js/all.js" integrity="sha384-DJ25uNYET2XCl5ZF++U8eNxPWqcKohUUBUpKGlNLMchM7q4Wjg2CUpjHLaL8yYPH" crossorigin="anonymous"></script>
+  </body>
+</html>

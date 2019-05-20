@@ -61,6 +61,18 @@
     font-family: Karla;
   }
 
+  .create-account-heading {    
+    font-family: Karla;
+    font-style: italic;
+    font-weight: normal;
+    font-size: 2rem;
+    color: white;
+  }
+
+  .text-2-rem {
+    font-size: 2rem;
+  }
+
   @media (min-width: 576px) {
     
     .login-view-main-header {

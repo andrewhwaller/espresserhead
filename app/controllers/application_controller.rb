@@ -4,7 +4,7 @@ class ApplicationController < Sinatra::Base
     set :public_folder, 'public'
     set :views, 'app/views'
     enable :sessions
-    set :session_secret, ENV.fetch('SESSION_SECRET') { SecureRandom.hex(20) } 
+    set :session_secret, 'test_secret'
   end
 
   get '/' do
@@ -13,7 +13,11 @@ class ApplicationController < Sinatra::Base
     else
       @user = current_user
       @coffeelists = @user.coffee_lists.all
-      erb :'coffeelists/show'
+      if @coffeelists.empty?
+        erb :'coffeelists/empty'
+      else
+        erb :'coffeelists/show'
+      end
     end
   end
 
