@@ -36,9 +36,11 @@ class CoffeeListsController < ApplicationController
   end
 
   get '/coffeelists/:id' do
-    if logged_in?
-      @coffeelist = CoffeeList.find_by_id(params[:id])
+    @coffeelist = CoffeeList.find_by_id(params[:id])
+    if logged_in? && @coffeelist.user_id == current_user.id
       erb :'coffeelists/show_list'
+    elsif logged_in?
+      redirect '/coffeelists'
     else
       redirect '/session/new'
     end

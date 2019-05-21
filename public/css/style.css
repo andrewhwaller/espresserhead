@@ -146,9 +146,9 @@
   flex: 1 0 auto;
 }
 
-/* #sticky-footer {
+#sticky-footer {
   flex-shrink: none;
-} */
+}
 
 .footer-margin {
   height: 100px;
