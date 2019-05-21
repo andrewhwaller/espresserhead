@@ -1,59 +1,86 @@
-<ul>
-  <li><%= @coffee.name %></li>
-  <li>Preparation method: <%= @coffee.prep_method %></li>
-  <li>Origin: <%= @coffee.origin %></li>
-  <li>Roast: <%= @coffee.roast %></li>
-  <li>Rating: <%= @coffee.rating %></li>
-  <li>Notes: <%= @coffee.notes %></li>
-</ul>
-<h4>Edit coffee</h4>
-<form method="POST" action="/coffees/<%= @coffee.id %>">
-  <input id="hidden" type="hidden" name="_method" value="PATCH">
-  <label>Coffee name:</label>
-  <input type="text" name="name" id="coffee[name]" placeholder="<%=@coffee.name%>" required>
-  <br>
-  <label>Add to list:</label>
-  <select name="coffee_list_id" id="coffee[coffee_list_id]" required>
-  <% current_list_id = @coffee.coffee_list_id %>
-  <% current_list = CoffeeList.find_by_id(current_list_id) %>
-    <option value="" disabled selected><%= current_list.list_name %></option>
-  <% @list_options = current_user.coffee_lists.all %>
-  <% @list_options.each do |list| %>
-    <option value="<%= list.id %>"><%= list.list_name %></option>
-  <%end%>
-  </select>
-  <br>
-  <label for="prep_method">Preparation method:</label>
-  <select name="prep_method" id="coffee[prep_method]" required>
-    <option value="" disabled selected><%=@coffee.prep_method%></option>
-    <option value="Espresso">Espresso</option>
-    <option value="Pourover">Pourover</option>
-    <option value="Drip">Drip</option>
-    <option value="Other">Other</option>
-  </select>
-  <br>
-  <label for="roast">Roast type:</label>
-  <select name="roast" id="coffee[roast]" placeholder="<%=@coffee.roast%>" required>
-    <option value="" disabled selected><%=@coffee.roast%></option>
-    <option value="Light">Light</option>
-    <option value="Medium">Medium</option>
-    <option value="Medium Dark">Medium Dark</option>
-    <option value="Dark">Dark</option>
-  </select>
-  <br>
-  <label for="origin">Origin:</label>
-  <input type="text" name="origin" id="coffee[origin]" placeholder="<%=@coffee.origin%>" required>
-  <br>
-  <label for="rating">Rating:</label>
-  <select name="rating" id="coffee[rating]" placeholder="<%=@coffee.rating%>" required>
-    <option value="1">1</option>
-    <option value="2">2</option>
-    <option value="3">3</option>
-    <option value="4">4</option>
-    <option value="5">5</option>
-  </select>
-  <br>
-  <label for="notes">Notes:</label>
-  <textarea name="notes" id="coffee[notes] rows="10" cols="30" placeholder="<%=@coffee.notes%>"></textarea>
-  <input type="submit" value="Save">
-</form>
+<div class="container">
+  <div class="row justify-content-center">
+      <div class="col-md-6 col-lg-4 col-xl-4" style="width: 30rem;">
+        <div class="card mb-4">
+          <div class="card-header bg-success text-truncate">
+            <span class="card-title text-dark text-uppercase"><%= @coffee.name %></span>
+          </div>
+          <div class="card-body karla-style">
+            <dl class="row">
+            <form method="POST" action="/coffees/<%= @coffee.id %>">
+              <input id="hidden" type="hidden" name="_method" value="PATCH">
+              <dt class="col-sm-6">Coffee Name</dt>
+              <dd class="col-sm-6">
+               <input type="text" name="name" id="coffee[name]" placeholder="<%=@coffee.name%>" required>
+              </dd>
+              <dt class="col-sm-6">List</dt>
+              <dd class="col-sm-6">
+                <select name="coffee_list_id" id="coffee[coffee_list_id]" required>
+                  <% current_list_id = @coffee.coffee_list_id %>
+                  <% current_list = CoffeeList.find_by_id(current_list_id) %>
+                  <option value="" disabled selected><%= current_list.list_name %></option>
+                  <% @list_options = current_user.coffee_lists.all %>
+                  <% @list_options.each do |list| %>
+                  <option value="<%= list.id %>"><%= list.list_name %></option>
+                  <%end%>
+                </select>
+              </dd>
+              <dt class="col-sm-6">Prep Method</dt>
+              <dd class="col-sm-6">
+                <select name="prep_method" id="coffee[prep_method]" placeholder="<%= @coffee.prep_method %>" required>
+                  <option value="" disabled selected><%=@coffee.prep_method%></option>
+                  <option value="Espresso">Espresso</option>
+                  <option value="Pourover">Pourover</option>
+                  <option value="Drip">Drip</option>
+                  <option value="Other">Other</option>
+                </select>
+              </dd>
+              <dt class="col-sm-6">Origin</dt>
+              <dd class="col-sm-6">
+                <input type="text" name="origin" id="coffee[origin]" placeholder="<%=@coffee.origin%>" required>
+              </dd>
+              <dt class="col-sm-6">Roast</dt>
+              <dd class="col-sm-6">
+                <select name="roast" id="coffee[roast]" placeholder="<%=@coffee.roast%>" required>
+                  <option value="" disabled selected><%=@coffee.roast%></option>
+                  <option value="Light">Light</option>
+                  <option value="Medium">Medium</option>
+                  <option value="Medium Dark">Medium Dark</option>
+                  <option value="Dark">Dark</option>
+                </select>
+              </dd>
+              <dt class="col-sm-6">User rating</dt>
+              <dd class="col-sm-6">
+                <select name="rating" id="coffee[rating]" placeholder="<%=@coffee.rating%>" required>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                </select>
+              </dd>
+              <dt class="col-sm-6">Notes</dt>
+              <dd class="col-sm-12 text-truncate">
+                <textarea name="notes" id="coffee[notes] rows="10" cols="30" placeholder="<%=@coffee.notes%>"></textarea>
+              </dd>
+            </dl>
+          </div>
+          <div class="card-footer">
+            <div class="row">
+              <div class="col-sm-6">
+                <form method="GET" action='#'>
+                  <input class="btn btn-dark form-control btn-block karla-style" type="submit" name="submit" value="Save">
+                </form>
+              </div>
+            <div class="col-sm-6">
+              <form method="POST" action='/coffees/<%= @coffee.id %>/delete'>
+                <input type="hidden" name="_method" value="DELETE">
+                <input class="btn btn-danger form-control btn-block karla-style" type="submit" value="Delete coffee">
+              </form>
+            </div>
+          </div>     
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
