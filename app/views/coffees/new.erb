@@ -1,46 +1,81 @@
-<h2>New Coffee</h2>
-
-<form method="POST" action="/coffees">
-  <label>Coffee name:</label>
-  <input type="text" name="name" id="coffee[name]">
-  <br>
-  <label>Add to list:</label>
-  <select name="coffee_list_id" id="coffee[coffee_list_id]">
-  <% @list_options = current_user.coffee_lists.all %>
-  <% @list_options.each do |list| %>
-    <option value="<%= list.id %>"><%= list.list_name %></option>
-  <%end%>
-  </select>
-  <br>
-  <label for="prep_method">Preparation method:</label>
-  <select name="prep_method" id="coffee[prep_method]">
-    <option value="Espresso">Espresso</option>
-    <option value="Pourover">Pourover</option>
-    <option value="Drip">Drip</option>
-    <option value="Other">Other</option>
-  </select>
-  <br>
-  <label for="roast">Roast type:</label>
-  <select name="roast" id="coffee[roast]">
-    <option value="Light">Light</option>
-    <option value="Medium">Medium</option>
-    <option value="Medium Dark">Medium Dark</option>
-    <option value="Dark">Dark</option>
-  </select>
-  <br>
-  <label for="origin">Origin:</label>
-  <input type="text" name="origin" id="coffee[origin]">
-  <br>
-  <label for="rating">Rating:</label>
-  <select name="rating" id="coffee[rating]">
-    <option value="1">1</option>
-    <option value="2">2</option>
-    <option value="3">3</option>
-    <option value="4">4</option>
-    <option value="5">5</option>
-  </select>
-  <br>
-  <label for="notes">Notes:</label>
-  <textarea name="notes" id="coffee[notes] rows="10" cols="30" placeholder="Notes on coffee, e.g., prep tips, recipes, ratios, etc."></textarea>
-  <input type="submit" value="Submit">
-</form>
+<div class="container mb-5">
+  <div class="row justify-content-center">
+      <div class="col-md-6 col-lg-4 col-xl-4" style="width: 30rem;">
+        <div class="card mb-4">
+          <div class="card-header bg-primary text-truncate">
+            <span class="card-title text-dark text-uppercase">Add a new coffee</span>
+          </div>
+          <div class="card-body karla-style p-auto pb-0">
+            <dl class="row">
+            <form method="POST" action="/coffees">
+              <input id="hidden" type="hidden" name="_method" value="PATCH">
+              <dt class="col-sm-6">Coffee Name</dt>
+              <dd class="col-sm-6">
+               <input type="text" name="name" id="coffee[name]" placeholder="e.g., Pike Place Roast" required>
+              </dd>
+              <dt class="col-sm-6">List</dt>
+              <dd class="col-sm-6">
+                <select name="coffee_list_id" id="coffee[coffee_list_id]" required>
+                  <option value="" disabled selected>Select a list for your new coffee</option>
+                  <% @list_options = current_user.coffee_lists.all %>
+                  <% @list_options.each do |list| %>
+                  <option value="<%= list.id %>"><%= list.list_name %></option>
+                  <%end%>
+                </select>
+              </dd>
+              <dt class="col-sm-6">Prep Method</dt>
+              <dd class="col-sm-6">
+                <select name="prep_method" id="coffee[prep_method]" required>
+                  <option value="" disabled selected>Select a preferred brew style</option>
+                  <option value="Espresso">Espresso</option>
+                  <option value="Pourover">Pourover</option>
+                  <option value="Drip">Drip</option>
+                  <option value="Other">Other</option>
+                </select>
+              </dd>
+              <dt class="col-sm-6">Origin</dt>
+              <dd class="col-sm-6">
+                <input type="text" name="origin" id="coffee[origin]" placeholder="e.g., Ethiopia" required>
+              </dd>
+              <dt class="col-sm-6">Roast</dt>
+              <dd class="col-sm-6">
+                <select name="roast" id="coffee[roast]" required>
+                  <option value="" disabled selected>Select roast type</option>
+                  <option value="Light">Light</option>
+                  <option value="Medium">Medium</option>
+                  <option value="Medium Dark">Medium Dark</option>
+                  <option value="Dark">Dark</option>
+                </select>
+              </dd>
+              <dt class="col-sm-6">User rating</dt>
+              <dd class="col-sm-6">
+                <select name="rating" id="coffee[rating]" required>
+                  <option value="" disabled selected>Rate this coffee</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                </select>
+              </dd>
+              <dt class="col-sm-6">Notes</dt>
+              <dd class="col-sm-12 text-truncate">
+                <textarea name="notes" id="coffee[notes]" rows="5" cols="30" placeholder="Notes on coffee, e.g., prep tips, recipes, ratios, etc."></textarea>
+              </dd>
+            </dl>
+          </div>
+          <div class="card-footer">
+            <div class="row">
+              <div class="col-sm-6">
+                  <input class="btn bg-success text-white form-control btn-block karla-style" type="submit" name="submit" value="Save coffee">
+                </form>
+              </div>
+            <div class="col-sm-6">
+              <a href="/coffeelists" class="btn bg-danger form-control karla-style" type="submit">Cancel</a>
+            </div>
+          </div>     
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
