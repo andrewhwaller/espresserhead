@@ -4,7 +4,11 @@ class CoffeeListsController < ApplicationController
     if logged_in?
       @user = current_user
       @coffeelists = @user.coffee_lists.all
-      erb :'coffeelists/show'
+      if @coffeelists.empty?
+        erb :'coffeelists/empty'
+      else 
+        erb :'coffeelists/show'
+      end
     else
       login
     end

@@ -13,11 +13,7 @@ class ApplicationController < Sinatra::Base
     else
       @user = current_user
       @coffeelists = @user.coffee_lists.all
-      if @coffeelists.empty?
-        erb :'coffeelists/empty'
-      else
-        erb :'coffeelists/show'
-      end
+      erb :'coffeelists/show'
     end
   end
 
