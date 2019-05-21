@@ -1,10 +1,12 @@
 <div class="col w-100">
-<div class="row m-auto">
-    <h4 class="karla-style">
+  <div class="row m-auto">
+    <h6 class="karla-style">
       <strong><%= @coffeelist.list_name %></strong>
       <br>
       <small class="text-muted"><%=@coffeelist.coffees.count%> entries</small>
-    </h4>
+      <br>
+      <a class="btn btn-success m-auto" href="/coffees/new"><i class="far fa-plus-square"></i> Add coffee</a>
+    </h6>
   </div>
 </div>
 <div class="container">
