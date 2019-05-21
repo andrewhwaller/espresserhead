@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 source 'https://rubygems.org'
+gem 'sinatra'
 
-ruby '~> 2.5.3'
+# ruby '~> 2.5.3'
 
 git_source(:github) { |repo_name| "https://github.com/#{repo_name}" }
 
@@ -13,7 +14,6 @@ gem 'puma'
 gem 'rake'
 gem 'require_all'
 gem 'shotgun'
-gem 'sinatra'
 gem 'sinatra-activerecord', :require => 'sinatra/activerecord'
 gem 'thin'
 gem 'tux'
