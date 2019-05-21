@@ -23,7 +23,7 @@ class CoffeeListsController < ApplicationController
       if params[:list_name] == ''
         redirect '/coffeelists/new'
       else
-        @coffeelist = current_user.coffee_lists.build(list_name: params[:list_name])
+        @coffeelist = current_user.coffee_lists.build(list_name: params[:list_name], list_description: params[:list_description])
         if @coffeelist.save
           redirect to '/coffeelists'
         else
