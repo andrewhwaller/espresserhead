@@ -1,9 +1,12 @@
 # Application Controller
+require 'sinatra/flash'
+
 class ApplicationController < Sinatra::Base
   configure do
     set :public_folder, 'public'
     set :views, 'app/views'
     enable :sessions
+    register Sinatra::Flash
     set :session_secret, 'test_secret'
   end
 
@@ -24,6 +27,10 @@ class ApplicationController < Sinatra::Base
 
     def current_user
       @current_user ||= User.find_by(:username => session[:username]) if session[:username]
+    end
+
+    def flash_types
+      [:success, :notice, :warning, :error]
     end
 
     def login(username, password)
