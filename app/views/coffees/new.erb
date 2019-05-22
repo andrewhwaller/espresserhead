@@ -5,16 +5,17 @@
           <div class="card-header bg-primary text-truncate">
             <span class="card-title text-white text-uppercase">Add a new coffee</span>
           </div>
-          <div class="card-body karla-style p-auto pb-0">
+          <div class="card-body karla-style">
             <dl class="row">
+            <div class="col-sm-12">
             <form method="POST" action="/coffees">
-              <dt class="col-sm-6">Coffee Name</dt>
-              <dd class="col-sm-6">
-               <input type="text" name="name" id="coffee[name]" placeholder="e.g., Pike Place Roast" required>
+              <dt>Coffee Name</dt>
+              <dd>
+               <input class="form-control" type="text" name="name" id="coffee[name]" placeholder="e.g., Pike Place Roast" required>
               </dd>
-              <dt class="col-sm-6">List</dt>
-              <dd class="col-sm-6">
-                <select name="coffee_list_id" id="coffee[coffee_list_id]" required>
+              <dt>List</dt>
+              <dd>
+                <select class="custom-select form-control" name="coffee_list_id" id="coffee[coffee_list_id]" required>
                   <option value="" disabled selected>Select a list for your new coffee</option>
                   <% @list_options = current_user.coffee_lists.all %>
                   <% @list_options.each do |list| %>
@@ -22,9 +23,9 @@
                   <%end%>
                 </select>
               </dd>
-              <dt class="col-sm-6">Prep Method</dt>
-              <dd class="col-sm-6">
-                <select name="prep_method" id="coffee[prep_method]" required>
+              <dt>Prep Method</dt>
+              <dd>
+                <select class="custom-select form-control" name="prep_method" id="coffee[prep_method]" required>
                   <option value="" disabled selected>Select a preferred brew style</option>
                   <option value="Espresso">Espresso</option>
                   <option value="Pourover">Pourover</option>
@@ -32,13 +33,13 @@
                   <option value="Other">Other</option>
                 </select>
               </dd>
-              <dt class="col-sm-6">Origin</dt>
-              <dd class="col-sm-6">
-                <input type="text" name="origin" id="coffee[origin]" placeholder="e.g., Ethiopia" required>
+              <dt>Origin</dt>
+              <dd>
+                <input class="form-control" type="text" name="origin" id="coffee[origin]" placeholder="e.g., Ethiopia" required>
               </dd>
-              <dt class="col-sm-6">Roast</dt>
-              <dd class="col-sm-6">
-                <select name="roast" id="coffee[roast]" required>
+              <dt>Roast</dt>
+              <dd>
+                <select class="custom-select form-control" name="roast" id="coffee[roast]" required>
                   <option value="" disabled selected>Select roast type</option>
                   <option value="Light">Light</option>
                   <option value="Medium">Medium</option>
@@ -46,9 +47,9 @@
                   <option value="Dark">Dark</option>
                 </select>
               </dd>
-              <dt class="col-sm-6">User rating</dt>
-              <dd class="col-sm-6">
-                <select name="rating" id="coffee[rating]" required>
+              <dt>User rating</dt>
+              <dd>
+                <select class="custom-select form-control" name="rating" id="coffee[rating]" required>
                   <option value="" disabled selected>Rate this coffee</option>
                   <option value="1">1</option>
                   <option value="2">2</option>
@@ -57,9 +58,9 @@
                   <option value="5">5</option>
                 </select>
               </dd>
-              <dt class="col-sm-6">Notes</dt>
-              <dd class="col-sm-12 text-truncate">
-                <textarea name="notes" id="coffee[notes]" rows="5" cols="30" placeholder="Notes on coffee, e.g., prep tips, recipes, ratios, etc."></textarea>
+              <dt>Notes</dt>
+              <dd class="text-truncate">
+                <textarea class="form-control" name="notes" id="coffee[notes]" placeholder="Notes on coffee, e.g., prep tips, recipes, ratios, etc."></textarea>
               </dd>
             </dl>
           </div>
