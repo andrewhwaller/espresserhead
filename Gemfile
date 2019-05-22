@@ -15,6 +15,7 @@ gem 'rake'
 gem 'require_all'
 gem 'shotgun'
 gem 'sinatra-activerecord', :require => 'sinatra/activerecord'
+gem 'sinatra-flash'
 gem 'thin'
 gem 'tux'
 
