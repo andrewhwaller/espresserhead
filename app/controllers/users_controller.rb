@@ -28,12 +28,4 @@ class UsersController < ApplicationController
     logout
     redirect '/'
   end
-
-  get '/electricity' do
-    if logged_in?
-      erb :'/electricity'
-    else
-      redirect '/session/new'
-    end
-  end
 end
