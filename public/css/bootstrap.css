@@ -469,6 +469,7 @@ mark,
 }
 
 .blockquote-footer {
+  position: absolute;
   display: block;
   font-size: 80%;
   color: #6c757d;
