@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     if @user.save
       redirect '/session/new'
     else
-      flash[:error] = "There is already an account with these credentials. Please try again."
+      flash[:error] = "Your account could not be created. Please check your credentials and try again."
       redirect '/users/new'
     end
   end

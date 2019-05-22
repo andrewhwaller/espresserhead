@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="/css/shards.css"/>
     <link href="https://fonts.googleapis.com/css?family=Karla:400,400i,700,700i" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
   </head>
   <body class="login-page-bg">
@@ -24,10 +25,12 @@
         <h2 class="font-italic karla-style font-weight-bold text-white-50 m-auto">CREATE ACCOUNT</h2>
       </div>
       <% if !!flash[:error] %>
-        <div class="alert alert-danger alert-dismissible fade show">  
-            <button type="button" class="close" data-dismiss="alert">×</button>  
-            <strong>Warning!</strong> <%= flash[:error] %>
-        </div> 
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+            <strong class="text-center">Warning!</strong> <%= flash[:error] %>
+        </div>
       <% end %>
       <div class="row p-5 h-50 justify-content-center align-items-center">
         <div class="col-xs-5 align-self-center">
@@ -39,7 +42,7 @@
                   <i class="fa fa-user"></i>
                 </div>
               </div>
-              <input type="text" class="form-control" id="username" name="username">
+              <input type="text" class="form-control" id="username" name="username" required>
             </div>
             <label class="login-field-label mb-n2" for="password">EMAIL_</label>
             <div class="input-group mb-2">
@@ -48,7 +51,7 @@
                   <i class="fas fa-envelope"></i>
                 </div>
               </div>
-              <input type="email" class="form-control" id="email" name="email">
+              <input type="email" class="form-control" id="email" name="email" required>
             </div>
             <label class="login-field-label mb-n2" for="password">PASSWORD_</label>
             <div class="input-group mb-3">
@@ -57,7 +60,7 @@
                   <i class="fas fa-lock"></i>
                 </div>
               </div>
-              <input type="password" class="form-control" id="password" name="password">
+              <input type="password" class="form-control" id="password" name="password" required>
             </div>
             <button type="submit" value="SUBMIT" class="btn btn-warning w-100 mb-3">SUBMIT</button>
           </form>
