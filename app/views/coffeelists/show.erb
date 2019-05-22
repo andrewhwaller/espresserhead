@@ -1,10 +1,21 @@
+<div class="col w-100">
+  <div class="row m-auto">
+    <h6 class="karla-style">
+      <strong><%= current_user.username %>'s Coffee Lists</strong>
+      <br>
+      <small class="text-muted"><%= current_user.coffee_lists.all.count %> list(s)</small>
+      <br>
+      <a class="btn btn-success m-auto" href="/coffeelists/new"><i class="far fa-plus-square"></i> Add a list</a>
+    </h6>
+  </div>
+</div>
 <div class="container mb-5">
   <div class="row justify-content-center">
     <% @coffeelists.each do |list| %>
       <div class="col-md-6 col-lg-4 col-xl-4" style="width: 30rem;">
         <div class="card h-100 mb-4">
-          <div class="card-header bg-warning text-truncate">
-            <a href='/coffeelists/<%=list.id%>' class="card-title text-dark text-uppercase"><%= list.list_name %></a>
+          <div class="card-header bg-primary text-truncate">
+            <a href='/coffeelists/<%=list.id%>' class="card-title text-white text-uppercase"><%= list.list_name %></a>
           </div>
           <div class="card-body karla-style">
             <div class="row">
