@@ -31,13 +31,17 @@
       </div>
       <div class="row p-5 h-50 justify-content-center align-items-center">
       <% if !!flash[:login] %>
-      <div class="container-fluid position-fixed w-50 h-25" style="z-index: 9999;">
-        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-          <button type="button" class="close pl-sm-5" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-          <h6 class="alert-heading text-white">"I like to remember things my own way..."</h6>
-          <p class="mb-0"><small><%= flash[:login] %></small></p>
+      <div class="container-fluid position-fixed" style="z-index: 9999;">
+        <div class="row justify-content-center">
+          <div class="col-md-6 col-lg-4 col-xl-4" style="width: 30rem;">
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+              <button type="button" class="close pl-sm-5" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <h6 class="alert-heading text-white">"I like to remember things my own way..."</h6>
+              <p class="m-auto"><small><%= flash[:login] %></small></p>
+            </div>
+          </div>
         </div>
       </div>
       <% end %>
