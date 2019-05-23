@@ -49,7 +49,7 @@
               </dd>
               <dt>User rating</dt>
               <dd>
-                <select class="custom-select form-control" name="rating" id="coffee[rating]" value="<%=@coffee.rating%>" required>
+                <select class="custom-select form-control" name="rating" id="coffee[rating]" placeholder="<%=@coffee.rating%>" required>
                   <option value="1">1</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
@@ -59,7 +59,7 @@
               </dd>
               <dt>Notes</dt>
               <dd class="text-truncate">
-                <textarea class="form-control" name="notes" id="coffee[notes]" value="<%=@coffee.notes%>"></textarea>
+                <textarea class="form-control" name="notes" id="coffee[notes]"><%=@coffee.notes%></textarea>
               </dd>
             </dl>
           </div>
