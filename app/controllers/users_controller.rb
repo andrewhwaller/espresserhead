@@ -21,8 +21,12 @@ class UsersController < ApplicationController
   end
 
   post '/session' do
-    login(params[:username], params[:password])
-    redirect '/coffeelists'
+    if login(params[:username], params[:password])
+      redirect '/coffeelists'
+    else
+      flash[:login] = "Login failed! Please check credentials and try again."
+      redirect '/session/new'
+    end
   end
 
   get '/session' do

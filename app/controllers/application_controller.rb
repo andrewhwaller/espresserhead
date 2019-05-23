@@ -37,8 +37,6 @@ class ApplicationController < Sinatra::Base
       user = User.find_by(:username => username)
       if user && user.authenticate(password)
         session[:username] = user.username
-      else
-        redirect '/session/new'
       end
     end
 

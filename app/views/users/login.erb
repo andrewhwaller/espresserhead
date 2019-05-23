@@ -30,6 +30,17 @@
       <div class="row h-25">
       </div>
       <div class="row p-5 h-50 justify-content-center align-items-center">
+      <% if !!flash[:login] %>
+      <div class="container-fluid position-fixed w-50 h-25" style="z-index: 9999;">
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <h6 class="alert-heading text-white">"I like to remember things my own way..."</h6>
+          <p class="mb-0"><small><%= flash[:login] %></small></p>
+        </div>
+      </div>
+      <% end %>
         <div class="col-xs-5 align-self-center">
           <form method="POST" action="/session">
             <label class="login-field-label mb-n2" for="username">USERNAME_</label>
