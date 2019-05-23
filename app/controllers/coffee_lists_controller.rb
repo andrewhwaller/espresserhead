@@ -75,7 +75,7 @@ class CoffeeListsController < ApplicationController
             list_name: params[:list_name],
             list_description: params[:list_description]
             )
-            redirect "/coffeelists/#{params[:id]}"
+            redirect '/coffeelists'
           else
             redirect "/coffeelists/#{params[:id]}/edit"
           end
