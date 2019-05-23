@@ -31,18 +31,21 @@
         <h2 class="font-italic karla-style font-weight-bold text-white-50 m-auto">CREATE ACCOUNT</h2>
       </div>
       <% if !!flash[:error] %>
-        <div class="alert alert-danger alert-dismissible fade show p-auto m-auto align-items-center" role="alert">
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-          <div class="row w-100 justify-content-center">
-          <div class="col-4">
-            <strong class="text-center text-white-50" style="text-transform: uppercase;">"I like to remember things my own way..."</strong> 
-            <p><small><%= flash[:error] %></small></p>
-          </div>
+      <div class="container-fluid position-fixed m-auto p-auto" style="z-index: 9999;">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="alert alert-danger alert-dismissible fade show center-block" role="alert">
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <h5 class="alert-heading text-center text-white-50" style="text-transform: uppercase;">"I like to remember things my own way..."</h5> 
+              <p class="text-center mb-0"><small><%= flash[:error] %></small></p>
+            </div>
           </div>
         </div>
+      </div>
       <% end %>
+    </div>
       <div class="row p-5 h-50 justify-content-center align-items-center">
         <div class="col-xs-5 align-self-center">
           <form method="POST" action="/users">
