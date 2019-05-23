@@ -22,6 +22,7 @@ class CoffeeListsController < ApplicationController
     end
   end
 
+  #CREATE
   post '/coffeelists' do
     if logged_in?
       if params[:list_name] == ''
@@ -39,6 +40,7 @@ class CoffeeListsController < ApplicationController
     end
   end
 
+  #READ
   get '/coffeelists/:id' do
     @coffeelist = CoffeeList.find_by_id(params[:id])
     if logged_in? && @coffeelist.user_id == current_user.id
@@ -53,10 +55,15 @@ class CoffeeListsController < ApplicationController
   get '/coffeelists/:id/edit' do
     if logged_in?
       @coffeelist = CoffeeList.find_by_id(params[:id])
-      erb :'coffeelists/edit'
+      if @coffeelist && @coffeelist.user == current_user
+        erb :'coffeelists/edit'
+      else
+        redirect '/coffeelists'
+      end
     end
   end
 
+  #UPDATE
   patch '/coffeelists/:id' do
     if logged_in?
       if params[:name] == ''
@@ -79,6 +86,7 @@ class CoffeeListsController < ApplicationController
     end
   end
 
+  #DESTROY
   delete '/coffeelists/:id/delete' do
     if logged_in?
       @coffeelist = CoffeeList.find_by_id(params[:id])
