@@ -18,8 +18,8 @@
     <link rel="manifest" href="/site.webmanifest">
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
-        <a class="navbar-brand navbar-karla-style-brand" href="/">ESPRESSERHEAD</a>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+        <a class="navbar-karla-style-brand pr-2" href="/">ESPRESSERHEAD</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown-6" aria-controls="navbarNavDropdown-6" aria-expanded="false" aria-label="Toggle Navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -46,16 +46,18 @@
                 </li>
             </ul>
             <br>
-            <span class="nav-item karla-style">Welcome, <%= current_user.username %></span>
+            <span class="nav-item karla-style text-white" style="text-transform: uppercase;">
+                <i>WELCOME, <%= current_user.username %></i>
+            </span>
         </div>
     </nav>
 
     <%= yield %>
   </body>
   <div class="footer-margin">
-      <footer class="fixed-bottom py-3 bg-light">
+      <footer class="fixed-bottom py-3 bg-dark">
         <div class="container text-center">
-          <small class="karla-style"><strong>ESPRESSERHEAD</strong> &copy; Copyright 2019, Andrew H. Waller</small>
+          <small class="karla-style text-white"><i><strong>ESPRESSERHEAD</strong> &copy; Copyright 2019, Andrew H. Waller</i></small>
         </div>
     </footer>
   </div>

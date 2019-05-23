@@ -1,6 +1,3 @@
-.coffee-card-header {
-  color: #36311F;
-}
 
 .login-page-bg {
   width:100%; 
@@ -59,8 +56,14 @@
     font-weight: bold;
     font-style: italic;
     font-size: 2rem;
+    text-decoration: none !important;
+    color: #FFEE59;
   }
 
+  .navbar-karla-style-brand:hover {
+    text-decoration: none !important;
+    color: #FFEE59 !important;
+  }
   .karla-style {
     font-family: Karla;
   }
@@ -155,9 +158,5 @@
 }
 
 .footer-margin {
-  height: 100px;
-}
-
-.navbar-margin {
   height: 100px;
 }
