@@ -31,11 +31,16 @@
         <h2 class="font-italic karla-style font-weight-bold text-white-50 m-auto">CREATE ACCOUNT</h2>
       </div>
       <% if !!flash[:error] %>
-        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <div class="alert alert-danger alert-dismissible fade show p-auto m-auto align-items-center" role="alert">
           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
-            <strong class="text-center">"I like to remember things my own way..."</strong> <%= flash[:error] %>
+          <div class="row w-100 justify-content-center">
+          <div class="col-4">
+            <strong class="text-center text-white-50" style="text-transform: uppercase;">"I like to remember things my own way..."</strong> 
+            <p><small><%= flash[:error] %></small></p>
+          </div>
+          </div>
         </div>
       <% end %>
       <div class="row p-5 h-50 justify-content-center align-items-center">
