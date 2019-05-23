@@ -3,7 +3,7 @@
     <h6 class="karla-style">
       <strong><%= @coffeelist.list_name %></strong>
       <br>
-      <small class="text-muted"><%=@coffeelist.coffees.count%> coffee(s)</small>
+      <small class="text-muted"><%= @coffeelist.coffees.count %> <%="coffee".pluralize(@coffeelist.coffees.count)%></small>
       <br>
       <a class="btn btn-success m-auto" href="/coffees/new"><i class="far fa-plus-square"></i> Add coffee</a>
     </h6>

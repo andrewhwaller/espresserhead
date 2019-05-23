@@ -23,7 +23,7 @@ class CoffeesController < ApplicationController
           notes: params[:notes]
         )
         if @new_coffee.save
-          redirect to '/coffeelists'
+          redirect to "/coffeelists/#{params[:coffee_list_id]}"
         else
           redirect '/coffees/new'
         end
