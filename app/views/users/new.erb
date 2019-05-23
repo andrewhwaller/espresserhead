@@ -33,13 +33,13 @@
     </div>
       <div class="row p-5 h-50 justify-content-center align-items-center">
       <% if !!flash[:error] %>
-      <div class="container-fluid position-fixed w-50" style="z-index: 9999;">
+      <div class="container-fluid position-fixed w-25" style="z-index: 9999;">
         <div class="alert alert-danger alert-dismissible fade show" role="alert">
           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
-          <h5 class="alert-heading text-center text-white-50" style="text-transform: uppercase;">"I like to remember things my own way..."</h5> 
-          <p class="text-center mb-0"><small><%= flash[:error] %></small></p>
+          <h6 class="alert-heading text-white">"Is it... future... or... is it... past?"</h6>
+          <p class="mb-0"><small><%= flash[:error] %></small></p>
         </div>
       </div>
       <% end %>
