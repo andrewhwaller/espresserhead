@@ -79,6 +79,8 @@ class CoffeesController < ApplicationController
       @coffee = Coffee.find_by_id(params[:id])
       if @coffee && @coffee.coffee_list.user == current_user
         @coffee.delete
+      else
+        redirect '/coffeelists'
       end
       redirect "/coffeelists/#{@coffee.coffee_list_id}"
     else
