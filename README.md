@@ -1,4 +1,4 @@
-# ESPRESSERHEAD
+# <i>ESPRESSERHEAD</i>
 
 ![](coopercoffee.gif)
 
@@ -6,7 +6,7 @@
 
 ESPRESSERHEAD is a Lynchian coffee tracker application built in Sinatra. ESPRESSERHEAD takes stylistic and aesthetic cues from the work of filmmaker David Lynch while allowing users to keep track of one of David's favorite things: coffee!
 
-Video walkthrough: [ESPRESSERHEAD Walkthrough](https://youtu.be/nu9Ncd97qfI)
+Video walkthrough: [ESPRESSERHEAD Walkthrough](https://youtu.be/inuKYjQOLM0)
 
 ## Getting Started with ESPRESSERHEAD
 
