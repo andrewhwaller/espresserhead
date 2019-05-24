@@ -65,7 +65,7 @@
     color: #FFEE59 !important;
   }
   .karla-style {
-    font-family: Karla;
+    font-family: Karla !important;
   }
 
   .create-account-heading {    
