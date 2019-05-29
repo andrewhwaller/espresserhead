@@ -11,13 +11,10 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/' do
-    if !logged_in?
-      redirect '/session/new'
-    else
-      @user = current_user
-      @coffeelists = @user.coffee_lists.all
-      erb :'coffeelists/show'
-    end
+    redirect_if_not_logged_in
+    @user = current_user
+    @coffeelists = @user.coffee_lists.all
+    erb :'coffeelists/show'
   end
 
   helpers do
