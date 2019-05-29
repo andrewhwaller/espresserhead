@@ -1,16 +1,11 @@
 #  Coffeelists Controller
 class CoffeeListsController < ApplicationController
   get '/coffeelists' do
-    if logged_in?
-      @user = current_user
-      @coffeelists = @user.coffee_lists.all
-      if @coffeelists.empty?
-        erb :'coffeelists/empty'
-      else 
-        erb :'coffeelists/show'
-      end
-    else
-      login
+    redirect_if_not_logged_in
+    if current_user.coffee_lists.empty?
+      erb :'coffeelists/empty'
+    else 
+      erb :'coffeelists/show'
     end
   end
 
@@ -24,78 +19,68 @@ class CoffeeListsController < ApplicationController
 
   #CREATE
   post '/coffeelists' do
-    if logged_in?
-      if params[:list_name] == ''
-        redirect '/coffeelists/new'
-      else
-        @coffeelist = current_user.coffee_lists.build(list_name: params[:list_name], list_description: params[:list_description])
-        if @coffeelist.save
-          redirect to '/coffeelists'
-        else
-          redirect '/coffeelists/new'
-        end
-      end
+    redirect_if_not_logged_in
+    if params[:list_name] == ''
+      redirect '/coffeelists/new'
     else
-      redirect '/session/new'
+      @coffeelist = current_user.coffee_lists.build(list_name: params[:list_name], list_description: params[:list_description])
+      if @coffeelist.save
+        redirect to '/coffeelists'
+      else
+        redirect '/coffeelists/new'
+      end
     end
   end
 
   #READ
   get '/coffeelists/:id' do
+    redirect_if_not_logged_in
     @coffeelist = CoffeeList.find_by_id(params[:id])
-    if logged_in? && @coffeelist.user_id == current_user.id
+    if @coffeelist.user_id == current_user.id
       erb :'coffeelists/show_list'
-    elsif logged_in?
-      redirect '/coffeelists'
     else
-      redirect '/session/new'
+      redirect '/coffeelists'
     end
   end
 
   get '/coffeelists/:id/edit' do
-    if logged_in?
-      @coffeelist = CoffeeList.find_by_id(params[:id])
-      if @coffeelist && @coffeelist.user == current_user
-        erb :'coffeelists/edit'
-      else
-        redirect '/coffeelists'
-      end
+    redirect_if_not_logged_in
+    @coffeelist = CoffeeList.find_by_id(params[:id])
+    if @coffeelist && @coffeelist.user == current_user
+      erb :'coffeelists/edit'
+    else
+      redirect '/coffeelists'
     end
   end
 
   #UPDATE
   patch '/coffeelists/:id' do
-    if logged_in?
-      if params[:name] == ''
-        redirect "/coffeelists/#{params[:id]}/edit"
-      else
-        @coffeelist = CoffeeList.find_by_id(params[:id])
-        if @coffeelist && @coffeelist.user == current_user
-          if @coffeelist.update(
-            list_name: params[:list_name],
-            list_description: params[:list_description]
-            )
-            redirect '/coffeelists'
-          else
-            redirect "/coffeelists/#{params[:id]}/edit"
-          end
+    redirect_if_not_logged_in
+    if params[:name] == ''
+      redirect "/coffeelists/#{params[:id]}/edit"
+    else
+      @coffeelist = CoffeeList.find_by_id(params[:id])
+      if @coffeelist && @coffeelist.user == current_user
+        if @coffeelist.update(
+          list_name: params[:list_name],
+          list_description: params[:list_description]
+          )
+          redirect '/coffeelists'
+        else
+          redirect "/coffeelists/#{params[:id]}/edit"
         end
       end
-    else
-      redirect '/session/new'
     end
   end
 
   #DESTROY
   delete '/coffeelists/:id/delete' do
-    if logged_in?
-      @coffeelist = CoffeeList.find_by_id(params[:id])
-      if @coffeelist && @coffeelist.user == current_user
-        @coffeelist.delete
-      end
-      redirect to '/coffeelists'
-    else
-      redirect to '/session/new'
+    redirect_if_not_logged_in
+    @coffeelist = CoffeeList.find_by_id(params[:id])
+    if @coffeelist && @coffeelist.user == current_user
+      @coffeelist.delete
     end
+    redirect to '/coffeelists'
   end
+
 end
