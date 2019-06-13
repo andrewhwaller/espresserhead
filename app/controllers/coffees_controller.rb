@@ -5,7 +5,7 @@ class CoffeesController < ApplicationController
     erb :'coffees/new'
   end
 
-  #CREATE
+  # CREATE
   post '/coffees' do
     redirect_if_not_logged_in
     if params[:name] == ''
@@ -14,12 +14,12 @@ class CoffeesController < ApplicationController
       @new_coffee = Coffee.new(
         name: params[:name],
         coffee_list_id: params[:coffee_list_id],
-        prep_method: params[:prep_method],          
+        prep_method: params[:prep_method],
         rating: params[:rating],
         origin: params[:origin],
         roast: params[:roast],
         notes: params[:notes]
-        )
+      )
       if @new_coffee.save
         redirect to "/coffeelists/#{params[:coffee_list_id]}"
       else
@@ -38,7 +38,7 @@ class CoffeesController < ApplicationController
     end
   end
 
-  #UPDATE
+  # UPDATE
   patch '/coffees/:id' do
     redirect_if_not_logged_in
     if params[:name] == ''
@@ -52,9 +52,9 @@ class CoffeesController < ApplicationController
           prep_method: params[:prep_method],
           rating: params[:rating],
           origin: params[:origin],
-          roast: params[:roast],            
+          roast: params[:roast],
           notes: params[:notes]
-          )
+        )
           redirect "/coffeelists/#{@coffee.coffee_list_id}"
         else
           redirect "/coffees/#{params[:id]}/edit"
@@ -63,7 +63,7 @@ class CoffeesController < ApplicationController
     end
   end
 
-  #DESTROY
+  # DESTROY
   delete '/coffees/:id/delete' do
     redirect_if_not_logged_in
     @coffee = Coffee.find_by_id(params[:id])

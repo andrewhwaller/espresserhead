@@ -1,6 +1,5 @@
 # Coffee Class
 class Coffee < ActiveRecord::Base
-
   validates :name, :presence => true, length: { minimum: 5 }
   validates :coffee_list_id, :presence => true, numericality: { only_integer: true }
   validates :prep_method, :presence => true

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 source 'https://rubygems.org'
 gem 'sinatra'
 
@@ -27,5 +28,5 @@ group :test do
 end
 
 group :production do
-   gem 'heroku-deflater'
-end 
+  gem 'heroku-deflater'
+end

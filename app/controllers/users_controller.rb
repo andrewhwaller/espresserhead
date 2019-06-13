@@ -15,7 +15,7 @@ class UsersController < ApplicationController
       redirect '/users/new'
     end
   end
-  
+
   get '/session/new' do
     erb :'users/login', :layout => :'users/login'
   end
