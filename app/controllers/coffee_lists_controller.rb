@@ -1,7 +1,8 @@
 #  Coffeelists Controller
 class CoffeeListsController < ApplicationController
+  before_action :redirect_if_not_logged_in
+
   get '/coffeelists' do
-    redirect_if_not_logged_in
     if current_user.coffee_lists.empty?
       erb :'coffeelists/empty'
     else
@@ -19,7 +20,6 @@ class CoffeeListsController < ApplicationController
 
   # CREATE
   post '/coffeelists' do
-    redirect_if_not_logged_in
     if params[:list_name] == ''
       redirect '/coffeelists/new'
     else
@@ -34,7 +34,6 @@ class CoffeeListsController < ApplicationController
 
   # READ
   get '/coffeelists/:id' do
-    redirect_if_not_logged_in
     @coffeelist = CoffeeList.find_by_id(params[:id])
     if @coffeelist.user_id == current_user.id
       erb :'coffeelists/show_list'
@@ -44,7 +43,6 @@ class CoffeeListsController < ApplicationController
   end
 
   get '/coffeelists/:id/edit' do
-    redirect_if_not_logged_in
     @coffeelist = CoffeeList.find_by_id(params[:id])
     if @coffeelist && @coffeelist.user == current_user
       erb :'coffeelists/edit'
@@ -55,7 +53,6 @@ class CoffeeListsController < ApplicationController
 
   # UPDATE
   patch '/coffeelists/:id' do
-    redirect_if_not_logged_in
     if params[:name] == ''
       redirect "/coffeelists/#{params[:id]}/edit"
     else
@@ -75,7 +72,6 @@ class CoffeeListsController < ApplicationController
 
   # DESTROY
   delete '/coffeelists/:id/delete' do
-    redirect_if_not_logged_in
     @coffeelist = CoffeeList.find_by_id(params[:id])
     if @coffeelist && @coffeelist.user == current_user
       @coffeelist.delete
