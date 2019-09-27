@@ -1,13 +1,16 @@
 #  Coffee Controller
 class CoffeesController < ApplicationController
-  get '/coffees/new' do
+
+  before do
     redirect_if_not_logged_in
+  end
+
+  get '/coffees/new' do
     erb :'coffees/new'
   end
 
   # CREATE
   post '/coffees' do
-    redirect_if_not_logged_in
     if params[:name] == ''
       redirect '/coffees/new'
     else
@@ -29,7 +32,6 @@ class CoffeesController < ApplicationController
   end
 
   get '/coffees/:id/edit' do
-    redirect_if_not_logged_in
     @coffee = Coffee.find_by_id(params[:id])
     if @coffee && @coffee.coffee_list.user == current_user
       erb :'coffees/edit'
@@ -40,7 +42,6 @@ class CoffeesController < ApplicationController
 
   # UPDATE
   patch '/coffees/:id' do
-    redirect_if_not_logged_in
     if params[:name] == ''
       redirect "/coffees/#{params[:id]}/edit"
     else
@@ -65,7 +66,6 @@ class CoffeesController < ApplicationController
 
   # DESTROY
   delete '/coffees/:id/delete' do
-    redirect_if_not_logged_in
     @coffee = Coffee.find_by_id(params[:id])
     if @coffee && @coffee.coffee_list.user == current_user
       @coffee.delete

@@ -1,6 +1,9 @@
 #  Coffeelists Controller
 class CoffeeListsController < ApplicationController
-  before_action :redirect_if_not_logged_in
+
+  before do
+    redirect_if_not_logged_in
+  end
 
   get '/coffeelists' do
     if current_user.coffee_lists.empty?
